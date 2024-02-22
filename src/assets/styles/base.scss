@@ -1,0 +1,125 @@
+:root {
+  /* Colors/base */
+  --colors-base-white: #FFFFFF;
+  --colors-base-black: #000000;
+
+  /* Colors/Brand */
+  --colors-brand-25: #FCFAFF;
+  --colors-brand-50: #F9F5FF;
+  --colors-brand-100: #F4EBFF;
+  --colors-brand-200: #E9D7FE;
+  --colors-brand-300: #D6BBFB;
+  --colors-brand-400: #B692F6;
+  --colors-brand-500: #9E77ED;
+  --colors-brand-600: #7F56D9;
+  --colors-brand-700: #6941C6;
+  --colors-brand-800: #53389E;
+  --colors-brand-900: #42307D;
+  --colors-brand-950: #2C1C5F;
+
+  /* Colors/Gray (dark mode) */
+  --colors-gray-dark-mode-25: #FAFAFA;
+  --colors-gray-dark-mode-50: #F5F5F6;
+  --colors-gray-dark-mode-100: #F0F1F1;
+  --colors-gray-dark-mode-200: #ECECED;
+  --colors-gray-dark-mode-300: #CECFD2;
+  --colors-gray-dark-mode-400: #94969C;
+  --colors-gray-dark-mode-500: #85888E;
+  --colors-gray-dark-mode-600: #61646C;
+  --colors-gray-dark-mode-700: #333741;
+  --colors-gray-dark-mode-800: #1F242F;
+  --colors-gray-dark-mode-900: #161B26;
+  --colors-gray-dark-mode-950: #0C111D;
+
+  /* Colors/Gray (light mode) */
+  --colors-gray-light-mode-25: #FCFCFD;
+  --colors-gray-light-mode-50: #F9FAFB;
+  --colors-gray-light-mode-100: #F2F4F7;
+  --colors-gray-light-mode-200: #EAECF0;
+  --colors-gray-light-mode-300: #D0D5DD;
+  --colors-gray-light-mode-400: #98A2B3;
+  --colors-gray-light-mode-500: #667085;
+  --colors-gray-light-mode-600: #475467;
+  --colors-gray-light-mode-700: #344054;
+  --colors-gray-light-mode-800: #182230;
+  --colors-gray-light-mode-900: #101828;
+  --colors-gray-light-mode-950: #0C111D;
+}
+
+/* Radius */
+:root {
+  --radius-none: 0rem;
+  --radius-xxs: 0.2rem;
+  --radius-xs: 0.4rem;
+  --radius-sm: 0.6rem;
+  --radius-md: 0.8rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.2rem;
+  --radius-2xl: 1.6rem;
+  --radius-3xl: 2rem;
+  --radius-4xl: 2.4rem;
+  --radius-full: 999.9rem;
+}
+
+
+/* semantic color variables for this project */
+:root {
+  /* Background (light mode) */
+  --bg-primary: var(--colors-base-white);
+
+  /* Foreground (light mode) */
+  --fg-secondary_hover: var(--colors-gray-light-mode-800);
+  --fg-secondary-700: var(--colors-gray-light-mode-700);
+
+  /* Borders (light mode) */
+  --border-primary: var(--colors-gray-light-mode-300);
+  --border-secondary: var(--colors-gray-light-mode-200);
+  --border-tertiary: var(--colors-gray-light-mode-100);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Background (dark mode) */
+    --bg-primary: var(--colors-gray-dark-mode-950);
+
+    /* Foreground (dark mode) */
+    --fg-secondary_hover: var(--colors-gray-dark-mode-200);
+    --fg-secondary-700: var(--colors-gray-dark-mode-300);
+
+    /* Borders (dark mode) */
+    --border-primary: var(--colors-gray-dark-mode-700);
+    --border-secondary: var(--colors-gray-dark-mode-800);
+    --border-tertiary: var(--colors-gray-dark-mode-800);
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  transition: color 0.5s,
+  background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter,
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  'Fira Sans',
+  'Droid Sans',
+  'Helvetica Neue',
+  sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
