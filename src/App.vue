@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import NavHeaderToggleButton from '@/components/NavHeaderToggleButton.vue'
+import TheNavHeader from '@/components/TheNavHeader.vue'
 </script>
 
 <template>
-  <NavHeaderToggleButton />
+  <TheNavHeader />
 </template>
 
 <style scoped></style>
