@@ -46,6 +46,11 @@
   --colors-gray-light-mode-950: #0C111D;
 }
 
+/* Widths */
+*:root {
+  --width-xl: 768px;
+}
+
 /* Radius */
 :root {
   --radius-none: 0;
@@ -75,6 +80,7 @@
   --spacing-2xl: 2rem;
   --spacing-3xl: 2.4rem;
   --spacing-4xl: 3.2rem;
+  --spacing-5xl: 4rem;
 
   /* Padding */
   --container-padding-mobile: 1.6rem;
@@ -98,7 +104,11 @@
   --border-tertiary: var(--colors-gray-light-mode-100);
 
   /* Text color (light mode) */
-  --text-primary-900: var(--colors-gray-light-mode-900)
+  --text-primary-900: var(--colors-gray-light-mode-900);
+
+  /* Button ternary foreground (light mode)  */
+  --button-tertiary-fg: var(--colors-gray-light-mode-600);
+  --button-tertiary-fg_hover: var(--colors-gray-light-mode-700);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -117,7 +127,11 @@
     --border-tertiary: var(--colors-gray-dark-mode-800);
 
     /* Text color (dark mode) */
-    --text-primary-900: var(--colors-gray-dark-mode-50)
+    --text-primary-900: var(--colors-gray-dark-mode-50);
+
+    /* Button ternary foreground (light mode)  */
+    --button-tertiary-fg: var(--colors-gray-dark-mode-400);
+    --button-tertiary-fg_hover: var(--colors-gray-dark-mode-200);
   }
 }
 
@@ -128,7 +142,6 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 }
-
 
 .text-md-semibold {
   font-size: 1.6rem;
