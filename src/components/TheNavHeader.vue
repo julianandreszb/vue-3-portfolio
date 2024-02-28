@@ -81,8 +81,8 @@ $nav-header-height: 7.2rem;
 }
 
 .container-toggle-button:has(input:checked) + .nav-menu {
-  transition: translate 500ms ease-in-out;
-  translate: 0;
+  transition: transform 500ms;
+  transform: translateY(0);
 }
 
 .nav-heaver {
@@ -96,6 +96,7 @@ $nav-header-height: 7.2rem;
 }
 
 .container-toggle-button {
+  background-color: var(--bg-primary);
   align-items: center;
   display: flex;
   height: $nav-header-height;
@@ -103,6 +104,7 @@ $nav-header-height: 7.2rem;
   padding-block: 0;
   padding-inline-end: var(--spacing-lg);
   padding-inline-start: var(--container-padding-mobile);
+  z-index: 1000;
 }
 
 .nav-menu {
@@ -113,8 +115,8 @@ $nav-header-height: 7.2rem;
   padding-block: var(--spacing-3xl);
   position: absolute;
   top: $nav-header-height;
-  transition: translate 500ms ease-in-out;
-  translate: -100%;
+  transition: transform 500ms;
+  transform: translateY(-100%);
   width: 100%;
 }
 
@@ -141,9 +143,9 @@ $nav-header-height: 7.2rem;
     height: 8rem;
     justify-content: end;
     padding-inline: var(--container-padding-desktop);
-    translate: 0;
     position: sticky;
     top: 0;
+    transform: translateY(0);
   }
 
   .nav-menu-item {
