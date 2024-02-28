@@ -17,15 +17,17 @@
 </template>
 
 <style lang="scss" scoped>
+$nav-header-height: 7.2rem;
+
 .toggle-button {
-  --bar-width: 2.4rem;
-  --bar-height: 0.24rem;
-  --hamburger-gap: 0.5rem;
-  --foreground: #333;
-  --background: white;
-  --hamburger-margin: 0.8rem;
   --animation-timing: 200ms ease-in-out;
+  --background: white;
+  --bar-height: 0.24rem;
+  --bar-width: 2.4rem;
+  --foreground: #333;
+  --hamburger-gap: 0.5rem;
   --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+  --hamburger-margin: 0.8rem;
   --x-width: calc(var(--hamburger-height) * 1.41421356237);
 
   background-color: var(--bg-primary);
@@ -40,12 +42,12 @@
 .toggle-button::before,
 .toggle-button::after,
 .toggle-button input {
-  content: '';
-  width: var(--bar-width);
-  height: var(--bar-height);
   background-color: var(--fg-secondary-700);
   border-radius: var(--radius-full);
+  content: '';
+  height: var(--bar-height);
   transform-origin: left center;
+  width: var(--bar-width);
 
   transition:
     opacity var(--animation-timing),
@@ -84,29 +86,36 @@
 }
 
 .nav-heaver {
+  background-color: var(--bg-primary);
   container-type: inline-size;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: sticky;
+  top: 0;
 }
 
 .container-toggle-button {
-  height: 7.2rem;
-  display: flex;
-  justify-content: end;
-  padding-inline-start: var(--container-padding-mobile);
-  padding-inline-end: var(--spacing-lg);
-  padding-block: 0;
   align-items: center;
+  display: flex;
+  height: $nav-header-height;
+  justify-content: end;
+  padding-block: 0;
+  padding-inline-end: var(--spacing-lg);
+  padding-inline-start: var(--container-padding-mobile);
 }
 
 .nav-menu {
+  background-color: var(--bg-primary);
   display: flex;
   flex-direction: column;
-  padding-block: var(--spacing-3xl);
   gap: var(--spacing-md);
+  padding-block: var(--spacing-3xl);
+  position: absolute;
+  top: $nav-header-height;
   transition: translate 500ms ease-in-out;
   translate: -100%;
+  width: 100%;
 }
 
 .nav-menu-item {
@@ -126,22 +135,23 @@
   }
 
   .nav-menu {
-    translate: 0;
-
-    flex-direction: row;
-    height: 8rem;
     align-items: center;
+    flex-direction: row;
+    gap: var(--spacing-4xl);
+    height: 8rem;
     justify-content: end;
     padding-inline: var(--container-padding-desktop);
-    gap: var(--spacing-4xl);
+    translate: 0;
+    position: sticky;
+    top: 0;
   }
 
   .nav-menu-item {
-    padding-block: var(--spacing-none);
-    padding-inline: var(--spacing-none);
+    color: var(--button-tertiary-fg);
     margin-block: var(--spacing-none);
     margin-inline: var(--spacing-none);
-    color: var(--button-tertiary-fg);
+    padding-block: var(--spacing-none);
+    padding-inline: var(--spacing-none);
 
     &:hover {
       background-color: transparent;
