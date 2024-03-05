@@ -8,15 +8,17 @@
       </label>
     </div>
     <nav class="nav-menu">
-      <a class="nav-menu-item text-md-semibold" href="/">Home</a>
-      <a class="nav-menu-item text-md-semibold" href="/about">About</a>
-      <a class="nav-menu-item text-md-semibold" href="/services">Services</a>
-      <a class="nav-menu-item text-md-semibold" href="/contact">Contact</a>
+      <a class="nav-menu-item" href="/">Home</a>
+      <a class="nav-menu-item" href="/about">About</a>
+      <a class="nav-menu-item" href="/services">Services</a>
+      <a class="nav-menu-item" href="/contact">Contact</a>
     </nav>
   </header>
 </template>
 
 <style lang="scss" scoped>
+@use 'src/assets/styles/text-styles';
+
 $nav-header-height: 7.2rem;
 
 .toggle-button {
@@ -37,6 +39,12 @@ $nav-header-height: 7.2rem;
   flex-direction: column;
   gap: var(--hamburger-gap);
   z-index: 2;
+  padding-inline: 0.8rem;
+  padding-block: 0.8rem;
+
+  &:hover {
+    background-color: var(--bg-primary_hover);
+  }
 }
 
 .toggle-button::before,
@@ -93,6 +101,7 @@ $nav-header-height: 7.2rem;
   justify-content: center;
   position: sticky;
   top: 0;
+  z-index: 1000;
 }
 
 .container-toggle-button {
@@ -118,9 +127,11 @@ $nav-header-height: 7.2rem;
   transition: transform 500ms;
   transform: translateY(-100%);
   width: 100%;
+  z-index: 900;
 }
 
 .nav-menu-item {
+  @include text-styles.text-md-semibold;
   color: var(--text-primary-900);
   padding-block: var(--spacing-lg);
   padding-inline: var(--spacing-xl);
@@ -142,7 +153,7 @@ $nav-header-height: 7.2rem;
     gap: var(--spacing-4xl);
     height: 8rem;
     justify-content: end;
-    padding-inline: var(--container-padding-desktop);
+    padding-inline: var(--container-padding-tablet);
     position: sticky;
     top: 0;
     transform: translateY(0);
@@ -159,6 +170,12 @@ $nav-header-height: 7.2rem;
       background-color: transparent;
       color: var(--button-tertiary-fg_hover);
     }
+  }
+}
+
+@container (min-width: 1280px) {
+  .nav-menu {
+    padding-inline: var(--container-padding-desktop);
   }
 }
 </style>
