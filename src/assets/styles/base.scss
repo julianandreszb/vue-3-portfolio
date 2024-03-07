@@ -98,8 +98,10 @@
 
   /* Brand (light mode) */
   --bg-brand-primary: var(--colors-brand-50);
+  --bg-brand-solid: var(--colors-brand-600);
 
   /* Foreground (light mode) */
+  --fg-white: var(--colors-base-white);
   --fg-secondary_hover: var(--colors-gray-light-mode-800);
   --fg-secondary-700: var(--colors-gray-light-mode-700);
 
@@ -140,8 +142,10 @@
 
     /* Brand (dark mode) */
     --bg-brand-primary: var(--colors-brand-500);
+    --bg-brand-solid: var(--colors-brand-600);
 
     /* Foreground (dark mode) */
+    --fg-white: var(--colors-base-white);
     --fg-secondary_hover: var(--colors-gray-dark-mode-200);
     --fg-secondary-700: var(--colors-gray-dark-mode-300);
 
