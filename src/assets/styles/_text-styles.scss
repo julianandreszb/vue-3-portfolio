@@ -1,3 +1,4 @@
+//region Display semibold
 @mixin display-md-semibold {
   font-size: 3.6rem;
   font-weight: var(--font-weight-semibold);
@@ -17,6 +18,17 @@
   font-weight: var(--font-weight-semibold);
   letter-spacing: -0.2rem;
   line-height: 7.2rem;
+}
+
+//endregion
+
+//region Text Semibold
+@mixin text-xs-semibold {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0;
+  line-height: 1.8rem;
+  margin-block-end: 1.2rem;
 }
 
 @mixin text-sm-semibold {
@@ -41,6 +53,16 @@
   letter-spacing: 0;
   line-height: 2.8rem;
   margin-block-end: 1.8rem;
+}
+
+//endregion
+
+@mixin text-sm-regular {
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0;
+  line-height: 2rem;
+  margin-block-end: 1.4rem;
 }
 
 @mixin text-lg-regular {

@@ -27,7 +27,7 @@ const classWrapperObject = reactive({
 </template>
 
 <style lang="scss" scoped>
-@use 'src/assets/styles/helper';
+@use '../../assets/styles/helper';
 @use 'sass:color';
 
 /*.step-icon-wrapper {

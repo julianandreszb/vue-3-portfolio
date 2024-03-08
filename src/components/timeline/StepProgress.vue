@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import StepIconBase from '@/components/StepIconBase.vue'
-import StepConnector from '@/components/StepConnector.vue'
+import StepIconBase from '@/components/timeline/StepIconBase.vue'
+import StepConnector from '@/components/timeline/StepConnector.vue'
 </script>
 
 <template>
@@ -12,7 +12,7 @@ import StepConnector from '@/components/StepConnector.vue'
 
 <style scoped lang="scss">
 .progress-step-container {
-  width: max-content;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 </style>

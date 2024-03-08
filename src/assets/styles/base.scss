@@ -121,6 +121,12 @@
   --text-primary-900: var(--colors-gray-light-mode-900);
   --text-tertiary: var(--colors-gray-light-mode-600);
 
+  /* Text brand secondary (light mode) */
+  --text-brand-secondary: var(--colors-brand-700);
+
+  /* Text placeholder (light mode) */
+  --text-placeholder_subtle: var(--colors-gray-light-mode-300);
+
   /* Button primary background (light mode)  */
   --button-primary-bg: var(--colors-brand-600);
   --button-primary-bg_hover: var(--colors-brand-700);
@@ -164,6 +170,12 @@
     /* Text color (dark mode) */
     --text-primary-900: var(--colors-gray-dark-mode-50);
     --text-tertiary: var(--colors-gray-dark-mode-400);
+
+    /* Text brand secondary (light mode) */
+    --text-brand-secondary: var(--colors-gray-dark-mode-300);
+
+    /* Text placeholder (light mode) */
+    --text-placeholder_subtle: var(--colors-gray-dark-mode-700);
 
     /* Button primary background (dark mode)  */
     --button-primary-bg: var(--colors-brand-600);
