@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import TheNavHeader from '@/components/TheNavHeader.vue'
-import TheHeroSection from '@/components/TheHeroSection.vue'
-import StepBase from '@/components/timeline/StepBase.vue'
+import TheHeroSection from '@/views/TheHeroSection.vue'
+import TheExperienceSection from '@/views/TheExperienceSection.vue'
 </script>
 
 <template>
   <TheNavHeader />
   <TheHeroSection />
-  <StepBase></StepBase>
-  <StepBase></StepBase>
+  <TheExperienceSection />
 </template>
 
 <style scoped></style>

@@ -42,19 +42,20 @@ import ProgressStep from '@/components/timeline/StepProgress.vue'
 
 .heading {
   @include text-styles.text-md-semibold;
-  margin-block-end: 0;
   color: var(--text-brand-secondary);
+  margin-block-end: 0;
 }
 
 .subheading {
   @include text-styles.text-xs-semibold;
+  color: var(--text-tertiary);
   margin-block-end: 0;
 }
 
 .subheading-date-range {
-  @include text-styles.text-xs-semibold;
+  @include text-styles.text-xs-regular;
+  color: var(--text-quaternary);
   margin-block-end: 0;
-  color: var(--text-placeholder_subtle);
 }
 
 .step-text-container {
@@ -64,12 +65,14 @@ import ProgressStep from '@/components/timeline/StepProgress.vue'
 
 .supporting-text {
   @include text-styles.text-sm-regular;
+  color: var(--text-secondary);
   margin-block-end: 0;
   max-width: 60ch;
 }
 
 .text-items {
   padding-block-start: var(--spacing-md);
+  color: var(--text-tertiary);
   @include text-styles.text-xs-semibold;
 }
 </style>

@@ -57,6 +57,15 @@
 
 //endregion
 
+//region Text Regular
+@mixin text-xs-regular {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0;
+  line-height: 1.8rem;
+  margin-block-end: 1.2rem;
+}
+
 @mixin text-sm-regular {
   font-size: 1.4rem;
   font-weight: var(--font-weight-regular);
@@ -72,3 +81,5 @@
   line-height: 2.8rem;
   margin-block-end: 1.8rem;
 }
+
+//endregion

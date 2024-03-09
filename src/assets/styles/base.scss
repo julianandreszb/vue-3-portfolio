@@ -118,8 +118,10 @@
   --border-brand-solid: var(--colors-brand-600);
 
   /* Text color (light mode) */
-  --text-primary-900: var(--colors-gray-light-mode-900);
+  --text-primary: var(--colors-gray-light-mode-900);
+  --text-secondary: var(--colors-gray-light-mode-700);
   --text-tertiary: var(--colors-gray-light-mode-600);
+  --text-quaternary: var(--colors-gray-light-mode-500);
 
   /* Text brand secondary (light mode) */
   --text-brand-secondary: var(--colors-brand-700);
@@ -168,8 +170,10 @@
     --border-brand-solid: var(--colors-brand-500);
 
     /* Text color (dark mode) */
-    --text-primary-900: var(--colors-gray-dark-mode-50);
+    --text-primary: var(--colors-gray-dark-mode-50);
+    --text-secondary: var(--colors-gray-dark-mode-300);
     --text-tertiary: var(--colors-gray-dark-mode-400);
+    --text-quaternary: var(--colors-gray-dark-mode-400);
 
     /* Text brand secondary (light mode) */
     --text-brand-secondary: var(--colors-gray-dark-mode-300);
