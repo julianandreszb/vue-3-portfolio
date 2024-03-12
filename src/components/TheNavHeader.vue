@@ -132,7 +132,7 @@ $nav-header-height: 7.2rem;
 
 .nav-menu-item {
   @include text-styles.text-md-semibold;
-  color: var(--text-primary-900);
+  color: var(--text-primary);
   padding-block: var(--spacing-lg);
   padding-inline: var(--spacing-xl);
   text-decoration: none;

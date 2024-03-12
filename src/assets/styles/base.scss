@@ -96,18 +96,38 @@
   --bg-primary: var(--colors-base-white);
   --bg-primary_hover: var(--colors-gray-light-mode-50);
 
+  /* Brand (light mode) */
+  --bg-brand-primary: var(--colors-brand-50);
+  --bg-brand-solid: var(--colors-brand-600);
+
   /* Foreground (light mode) */
+  --fg-white: var(--colors-base-white);
   --fg-secondary_hover: var(--colors-gray-light-mode-800);
   --fg-secondary-700: var(--colors-gray-light-mode-700);
 
-  /* Borders (light mode) */
+  /* Border primary (light mode) */
   --border-primary: var(--colors-gray-light-mode-300);
+
+  /* Border --border-secondary (light mode) */
   --border-secondary: var(--colors-gray-light-mode-200);
+
+  /* Border --border-tertiary (light mode) */
   --border-tertiary: var(--colors-gray-light-mode-100);
 
+  /* Border primary (light mode) */
+  --border-brand-solid: var(--colors-brand-600);
+
   /* Text color (light mode) */
-  --text-primary-900: var(--colors-gray-light-mode-900);
+  --text-primary: var(--colors-gray-light-mode-900);
+  --text-secondary: var(--colors-gray-light-mode-700);
   --text-tertiary: var(--colors-gray-light-mode-600);
+  --text-quaternary: var(--colors-gray-light-mode-500);
+
+  /* Text brand secondary (light mode) */
+  --text-brand-secondary: var(--colors-brand-700);
+
+  /* Text placeholder (light mode) */
+  --text-placeholder_subtle: var(--colors-gray-light-mode-300);
 
   /* Button primary background (light mode)  */
   --button-primary-bg: var(--colors-brand-600);
@@ -128,18 +148,38 @@
     --bg-primary: var(--colors-gray-dark-mode-950);
     --bg-primary_hover: var(--colors-gray-dark-mode-800);
 
+    /* Brand (dark mode) */
+    --bg-brand-primary: var(--colors-brand-500);
+    --bg-brand-solid: var(--colors-brand-600);
+
     /* Foreground (dark mode) */
+    --fg-white: var(--colors-base-white);
     --fg-secondary_hover: var(--colors-gray-dark-mode-200);
     --fg-secondary-700: var(--colors-gray-dark-mode-300);
 
-    /* Borders (dark mode) */
+    /* Border primary (dark mode) */
     --border-primary: var(--colors-gray-dark-mode-700);
+
+    /* Border secondary (dark mode) */
     --border-secondary: var(--colors-gray-dark-mode-800);
+
+    /* Border tertiary (dark mode) */
     --border-tertiary: var(--colors-gray-dark-mode-800);
 
+    /* Border primary (light mode) */
+    --border-brand-solid: var(--colors-brand-500);
+
     /* Text color (dark mode) */
-    --text-primary-900: var(--colors-gray-dark-mode-50);
+    --text-primary: var(--colors-gray-dark-mode-50);
+    --text-secondary: var(--colors-gray-dark-mode-300);
     --text-tertiary: var(--colors-gray-dark-mode-400);
+    --text-quaternary: var(--colors-gray-dark-mode-400);
+
+    /* Text brand secondary (light mode) */
+    --text-brand-secondary: var(--colors-gray-dark-mode-300);
+
+    /* Text placeholder (light mode) */
+    --text-placeholder_subtle: var(--colors-gray-dark-mode-700);
 
     /* Button primary background (dark mode)  */
     --button-primary-bg: var(--colors-brand-600);

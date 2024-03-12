@@ -1,0 +1,7 @@
+@function backgroundOpacity($color, $opacity) {
+  @return rgba($color, $opacity)
+}
+
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}

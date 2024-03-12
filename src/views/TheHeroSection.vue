@@ -24,8 +24,8 @@ import VueButton from '@/components/VueButton.vue'
 </template>
 
 <style lang="scss" scoped>
-@use 'src/assets/styles/flex';
-@use 'src/assets/styles/text-styles';
+@use '../assets/styles/flex';
+@use '../assets/styles/text-styles';
 
 .hero-container {
   container-type: inline-size;
@@ -47,7 +47,7 @@ import VueButton from '@/components/VueButton.vue'
 
 .hero-heading {
   @include text-styles.display-md-semibold;
-  color: var(--text-primary-900);
+  color: var(--text-primary);
 }
 
 .hero-supporting-text {
