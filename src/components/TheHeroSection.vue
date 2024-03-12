@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import imagePath from '@/assets/images/imgHero.png'
 import VueButton from '@/components/VueButton.vue'
 </script>
@@ -6,7 +6,7 @@ import VueButton from '@/components/VueButton.vue'
 <template>
   <div class="section-container hero-container">
     <section class="hero">
-      <img class="hero-img" :src="imagePath" alt="" />
+      <img :src="imagePath" alt="" class="hero-img" />
       <div class="hero-content-wrapper">
         <div class="hero-content">
           <h2 class="hero-heading">Clean code, beautiful design, Full-stack mastered</h2>
@@ -73,10 +73,6 @@ import VueButton from '@/components/VueButton.vue'
 @container (min-width: 1280px) {
   .hero-heading {
     @include text-styles.display-xl-semibold;
-  }
-
-  .btn-download-cv {
-    width: max-content;
   }
 }
 </style>
