@@ -29,6 +29,7 @@ import VueButton from '@/components/VueButton.vue'
 
 .hero-container {
   container-type: inline-size;
+  padding-block: var(--spacing-none);
 }
 
 .hero {
