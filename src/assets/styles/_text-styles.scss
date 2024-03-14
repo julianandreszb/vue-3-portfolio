@@ -6,6 +6,13 @@
   line-height: 4.4rem;
 }
 
+@mixin display-sm-semibold {
+  font-size: 3rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0;
+  line-height: 3.8rem;
+}
+
 @mixin display-lg-semibold {
   font-size: 4.8rem;
   font-weight: var(--font-weight-semibold);
@@ -28,7 +35,7 @@
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0;
   line-height: 1.8rem;
-  margin-block-end: 1.2rem;
+  /*margin-block-end: 1.2rem;*/
 }
 
 @mixin text-sm-semibold {
@@ -36,7 +43,7 @@
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0;
   line-height: 2rem;
-  margin-block-end: 1.4rem;
+  /*margin-block-end: 1.4rem;*/
 }
 
 @mixin text-md-semibold {
@@ -44,7 +51,7 @@
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0;
   line-height: 2.4rem;
-  margin-block-end: 1.6rem;
+  /*margin-block-end: 1.6rem;*/
 }
 
 @mixin text-lg-semibold {
@@ -52,7 +59,7 @@
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0;
   line-height: 2.8rem;
-  margin-block-end: 1.8rem;
+  /*margin-block-end: 1.8rem;*/
 }
 
 //endregion
@@ -63,7 +70,7 @@
   font-weight: var(--font-weight-regular);
   letter-spacing: 0;
   line-height: 1.8rem;
-  margin-block-end: 1.2rem;
+  /*margin-block-end: 1.2rem;*/
 }
 
 @mixin text-sm-regular {
@@ -71,7 +78,14 @@
   font-weight: var(--font-weight-regular);
   letter-spacing: 0;
   line-height: 2rem;
-  margin-block-end: 1.4rem;
+  /*margin-block-end: 1.4rem;*/
+}
+
+@mixin text-md-regular {
+  font-size: 1.6rem;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0;
+  line-height: 2.4rem;
 }
 
 @mixin text-lg-regular {
@@ -79,7 +93,7 @@
   font-weight: var(--font-weight-regular);
   letter-spacing: 0;
   line-height: 2.8rem;
-  margin-block-end: 1.8rem;
+  /*margin-block-end: 1.8rem;*/
 }
 
 //endregion

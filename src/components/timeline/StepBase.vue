@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import ProgressStep from '@/components/timeline/StepProgress.vue'
 </script>
 
@@ -7,25 +7,26 @@ import ProgressStep from '@/components/timeline/StepProgress.vue'
     <ProgressStep />
     <div class="step-content-wrapper">
       <div class="step-headers-container">
-        <h2 class="heading">Full-stack Web Developer</h2>
-        <span class="subheading">LifeFile LLC • Full-time</span>
-        <span class="subheading-date-range">2014 - 2024</span>
+        <h2 class="step-heading">Full-stack Web Developer</h2>
+        <span class="step-subheading">LifeFile LLC • Full-time</span>
+        <span class="step-subheading-date-range">2014 - 2024</span>
       </div>
       <div class="step-text-container">
-        <p class="supporting-text">
+        <p class="step-supporting-text">
           Lorem ipsum dolor sit amet consectetur. Pharetra feugiat morbi vel odio mauris arcu
           turpis. Mi varius ante vel enim id ornare nam.
         </p>
-        <span class="text-items">Skill One, Skill Two and 3+ Skills</span>
+        <span class="step-text-items">Skill One, Skill Two and 3+ Skills</span>
       </div>
     </div>
   </section>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @use '../../assets/styles/text-styles';
 
 .step-base {
+  container-type: inline-size;
   display: flex;
   gap: var(--spacing-lg);
 }
@@ -40,22 +41,19 @@ import ProgressStep from '@/components/timeline/StepProgress.vue'
   margin-block-end: var(--spacing-xl);
 }
 
-.heading {
+.step-heading {
   @include text-styles.text-md-semibold;
   color: var(--text-brand-secondary);
-  margin-block-end: 0;
 }
 
-.subheading {
+.step-subheading {
   @include text-styles.text-xs-semibold;
   color: var(--text-tertiary);
-  margin-block-end: 0;
 }
 
-.subheading-date-range {
+.step-subheading-date-range {
   @include text-styles.text-xs-regular;
   color: var(--text-quaternary);
-  margin-block-end: 0;
 }
 
 .step-text-container {
@@ -63,16 +61,36 @@ import ProgressStep from '@/components/timeline/StepProgress.vue'
   flex-direction: column;
 }
 
-.supporting-text {
+.step-supporting-text {
   @include text-styles.text-sm-regular;
   color: var(--text-secondary);
-  margin-block-end: 0;
   max-width: 60ch;
 }
 
-.text-items {
+.step-text-items {
   padding-block-start: var(--spacing-md);
   color: var(--text-tertiary);
   @include text-styles.text-xs-semibold;
+}
+
+@container (min-width: 768px) {
+  .step-heading {
+    @include text-styles.text-lg-semibold;
+  }
+
+  .step-subheading {
+    @include text-styles.text-sm-semibold;
+  }
+
+  .step-subheading-date-range {
+    @include text-styles.text-sm-regular;
+  }
+
+  .step-supporting-text {
+    @include text-styles.text-md-regular;
+  }
+}
+
+@container (min-width: 1280px) {
 }
 </style>
