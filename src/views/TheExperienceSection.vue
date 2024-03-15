@@ -4,7 +4,7 @@ import StepBase from '@/components/timeline/StepBase.vue'
 
 <template>
   <section class="experience section-container">
-    <h2 class="experience-heading">Experience</h2>
+    <h2 class="portfolio-heading">Experience</h2>
     <div>
       <StepBase></StepBase>
       <StepBase></StepBase>
@@ -19,13 +19,13 @@ import StepBase from '@/components/timeline/StepBase.vue'
   container-type: inline-size;
 }
 
-.experience-heading {
+.portfolio-heading {
   @include text-styles.display-sm-semibold;
   color: var(--text-primary);
 }
 
 @container (min-width: 768px) {
-  .experience-heading {
+  .portfolio-heading {
     @include text-styles.display-md-semibold;
   }
 }
