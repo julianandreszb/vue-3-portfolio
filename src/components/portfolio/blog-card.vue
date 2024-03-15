@@ -76,5 +76,6 @@ import imageCard from '@/assets/images/imgCard.png'
   padding-inline: var(--spacing-md);
   padding-block: var(--spacing-xxs);
   @include text-styles.text-sm-medium;
+  color: var(--text-primary);
 }
 </style>
