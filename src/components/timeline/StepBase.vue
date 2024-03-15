@@ -5,7 +5,7 @@ import ProgressStep from '@/components/timeline/StepProgress.vue'
 <template>
   <section class="step-base">
     <ProgressStep />
-    <div class="step-content-wrapper">
+    <div class="step-content-container">
       <div class="step-headers-container">
         <h2 class="step-heading">Full-stack Web Developer</h2>
         <span class="step-subheading">LifeFile LLC • Full-time</span>
@@ -31,7 +31,7 @@ import ProgressStep from '@/components/timeline/StepProgress.vue'
   gap: var(--spacing-lg);
 }
 
-.step-content-wrapper {
+.step-content-container {
   padding-block-end: var(--spacing-3xl);
 }
 

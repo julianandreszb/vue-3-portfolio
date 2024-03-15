@@ -4,10 +4,10 @@ import VueButton from '@/components/VueButton.vue'
 </script>
 
 <template>
-  <div class="section-container hero-container">
+  <section class="section-container hero-container">
     <section class="hero">
       <img :src="imagePath" alt="" class="hero-img" />
-      <div class="hero-content-wrapper">
+      <div class="hero-content-container">
         <div class="hero-content">
           <h2 class="hero-heading">Clean code, beautiful design, Full-stack mastered</h2>
           <p class="hero-supporting-text">
@@ -20,7 +20,7 @@ import VueButton from '@/components/VueButton.vue'
         </VueButton>
       </div>
     </section>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
@@ -38,7 +38,7 @@ import VueButton from '@/components/VueButton.vue'
   gap: var(--spacing-7xl);
 }
 
-.hero-content-wrapper {
+.hero-content-container {
   @include flex.column-gap-32;
 }
 
