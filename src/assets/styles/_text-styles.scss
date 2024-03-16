@@ -108,6 +108,13 @@
 
 
 //region Text Medium
+@mixin text-xs-medium {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0;
+  line-height: 1.8rem;
+}
+
 @mixin text-sm-medium {
   font-size: 1.4rem;
   font-weight: var(--font-weight-medium);

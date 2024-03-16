@@ -140,6 +140,15 @@
   --button-primary-border: var(--colors-brand-600);
   --button-primary-border_hover: var(--colors-brand-700);
 
+  /* Button secondary background (light mode)  */
+  --button-secondary-bg: var(--colors-base-white);
+  --button-secondary-bg_hover: var(--colors-gray-light-mode-50);
+  --button-secondary-fg: var(--colors-gray-light-mode-700);
+  --button-secondary-fg_hover: var(--colors-gray-light-mode-800);
+  --button-secondary-border: var(--colors-gray-light-mode-300);
+  --button-secondary-border_hover: var(--colors-gray-light-mode-300);
+  
+
   /* Button ternary foreground (light mode)  */
   --button-tertiary-fg: var(--colors-gray-light-mode-600);
   --button-tertiary-fg_hover: var(--colors-gray-light-mode-700);
@@ -192,6 +201,14 @@
     --button-primary-fg_hover: var(--colors-base-white);
     --button-primary-border: var(--colors-brand-600);
     --button-primary-border_hover: var(--colors-brand-700);
+    
+    /* Button secondary background (light mode)  */
+    --button-secondary-bg: var(--colors-gray-dark-mode-900);
+    --button-secondary-bg_hover: var(--colors-gray-dark-mode-800);
+    --button-secondary-fg: var(--colors-gray-dark-mode-300);
+    --button-secondary-fg_hover: var(--colors-gray-dark-mode-100);
+    --button-secondary-border: var(--colors-gray-dark-mode-700);
+    --button-secondary-border_hover: var(--colors-gray-dark-mode-700);
 
     /* Button ternary foreground (dark mode)  */
     --button-tertiary-fg: var(--colors-gray-dark-mode-400);

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { IButton } from '@/utils/typeScriptDefinitions/IButton'
 import { reactive } from 'vue'
 
@@ -10,6 +10,7 @@ const props = withDefaults(defineProps<IButton>(), {
 
 const classObject = reactive({
   'btn-primary': props.hierarchy === 'Primary',
+  'btn-secondary': props.hierarchy === 'Secondary color',
 
   'btn-sm': props.size === 'sm',
   'btn-md': props.size === 'md',
@@ -25,7 +26,7 @@ const classObject = reactive({
   </button>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @use 'src/assets/styles/text-styles';
 
 button {
@@ -45,6 +46,18 @@ button {
     background-color: var(--button-primary-bg_hover);
     color: var(--button-primary-fg_hover);
     border: 0.1rem solid var(--button-primary-border_hover);
+  }
+}
+
+.btn-secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-fg);
+  border: 0.1rem solid var(--button-secondary-border);
+
+  &:hover {
+    background-color: var(--button-secondary-bg_hover);
+    color: var(--button-secondary-fg_hover);
+    border: 0.1rem solid var(--button-secondary-border_hover);
   }
 }
 
