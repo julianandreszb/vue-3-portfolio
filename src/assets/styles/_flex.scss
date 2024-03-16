@@ -33,6 +33,18 @@
   gap: var(--spacing-4xl);
 }
 
+@mixin column-gap-48 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6xl);
+}
+
+@mixin column-gap-64 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-7xl);
+}
+
 @mixin row-gap-8 {
   display: flex;
   flex-direction: row;
@@ -43,4 +55,10 @@
   display: flex;
   flex-direction: row;
   gap: var(--spacing-xl);
+}
+
+@mixin row-gap-32 {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-4xl);
 }

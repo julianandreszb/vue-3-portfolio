@@ -114,4 +114,11 @@
   letter-spacing: 0;
   line-height: 2rem;
 }
+
+@mixin text-md-medium {
+  font-size: 1.6rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0;
+  line-height: 2.4rem;
+}
 //endregion
