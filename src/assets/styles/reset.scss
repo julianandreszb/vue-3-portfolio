@@ -59,10 +59,10 @@ picture {
 }
 
 /* Inherit fonts for inputs and buttons */
-input, button,
+/*input, button,
 textarea, select {
   font: inherit;
-}
+}*/
 
 /* Make sure textareas without a rows attribute are not tiny */
 textarea:not([rows]) {
