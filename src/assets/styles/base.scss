@@ -106,6 +106,7 @@
   --fg-white: var(--colors-base-white);
   --fg-secondary_hover: var(--colors-gray-light-mode-800);
   --fg-secondary-700: var(--colors-gray-light-mode-700);
+  --fg-brand-primary_alt: var(--colors-brand-600);
 
   /* Border primary (light mode) */
   --border-primary: var(--colors-gray-light-mode-300);
@@ -158,6 +159,7 @@
     --fg-white: var(--colors-base-white);
     --fg-secondary_hover: var(--colors-gray-dark-mode-200);
     --fg-secondary-700: var(--colors-gray-dark-mode-300);
+    --fg-brand-primary_alt: var(--colors-gray-dark-mode-300);
 
     /* Border primary (dark mode) */
     --border-primary: var(--colors-gray-dark-mode-700);

@@ -7,12 +7,12 @@ import BlogCard from '@/components/portfolio/BlogCard.vue'
     <h2 class="portfolio-heading">Portfolio</h2>
     <section class="portfolio">
       <section class="portfolio-tabs-sort">
-        <ul>
-          <li>View all</li>
-          <li>Vue</li>
-          <li>Laravel</li>
-          <li>Software Engineering</li>
-          <li>Vanilla JavaScript</li>
+        <ul class="portfolio-horizontal-tabs">
+          <li class="tab active">View all</li>
+          <li class="tab">Vue</li>
+          <li class="tab">Laravel</li>
+          <li class="tab">Software Engineering</li>
+          <li class="tab">Vanilla JavaScript</li>
         </ul>
         <select>
           <option value="">Most Recent</option>
@@ -32,6 +32,7 @@ import BlogCard from '@/components/portfolio/BlogCard.vue'
 
 <style lang="scss" scoped>
 @use 'src/assets/styles/text-styles';
+@use 'src/assets/styles/flex';
 .portfolio-container {
   container-type: inline-size;
 }
@@ -39,6 +40,28 @@ import BlogCard from '@/components/portfolio/BlogCard.vue'
 .portfolio-heading {
   @include text-styles.display-sm-semibold;
   color: var(--text-primary);
+}
+
+.portfolio-tabs-sort {
+  @include flex.column-gap-16;
+}
+
+.portfolio-horizontal-tabs {
+  @include flex.row-gap-16;
+  overflow: auto;
+}
+
+.tab {
+  @include text-styles.text-md-semibold;
+  color: var(--text-quaternary);
+  padding-inline: var(--spacing-xs);
+  padding-block-end: var(--spacing-lg);
+  white-space: nowrap;
+
+  &.active {
+    color: var(--text-brand-secondary);
+    border-bottom: 0.2rem solid var(--fg-brand-primary_alt);
+  }
 }
 
 @container (min-width: 768px) {

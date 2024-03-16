@@ -38,3 +38,9 @@
   flex-direction: row;
   gap: var(--spacing-md); 
 }
+
+@mixin row-gap-16 {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xl);
+}
