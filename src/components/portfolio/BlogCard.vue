@@ -3,7 +3,7 @@ import imageCard from '@/assets/images/imgCard.png'
 </script>
 
 <template>
-  <section class="card">
+  <article class="card">
     <img :src="imageCard" alt="" class="card-image" />
     <div class="card-content">
       <div class="card-text-container">
@@ -20,7 +20,7 @@ import imageCard from '@/assets/images/imgCard.png'
         <li class="badge">Laravel</li>
       </ul>
     </div>
-  </section>
+  </article>
 </template>
 
 <style lang="scss" scoped>

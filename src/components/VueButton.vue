@@ -50,14 +50,23 @@ button {
 }
 
 .btn-secondary {
-  background-color: var(--button-secondary-bg);
-  color: var(--button-secondary-fg);
-  border: 0.1rem solid var(--button-secondary-border);
+  background-color: var(--button-secondary-color-bg);
+  color: var(--button-secondary-color-fg);
+  border: 0.1rem solid var(--button-secondary-color-border);
 
   &:hover {
-    background-color: var(--button-secondary-bg_hover);
-    color: var(--button-secondary-fg_hover);
-    border: 0.1rem solid var(--button-secondary-border_hover);
+    background-color: var(--button-secondary-color-bg_hover);
+    color: var(--button-secondary-color-fg_hover);
+    border: 0.1rem solid var(--button-secondary-color-border_hover);
+  }
+
+  &:focus {
+    background-color: var(--button-secondary-color-bg_hover);
+    color: var(--button-secondary-color-fg_hover);
+    border: 0.1rem solid var(--button-secondary-color-border);
+    box-shadow:
+      0 0 0 0.2rem var(--border-brand-solid),
+      0 0 0 0.6rem color-mix(in srgb, var(--bg-brand-primary) 50%, transparent);
   }
 }
 
