@@ -57,6 +57,10 @@ import VueButton from '@/components/VueButton.vue'
 }
 
 @container (min-width: 768px) {
+  .hero-content-container {
+    justify-content: center;
+  }
+
   .hero {
     flex-direction: row-reverse;
   }
