@@ -119,6 +119,8 @@
 
   /* Border primary (light mode) */
   --border-brand-solid: var(--colors-brand-600);
+  --border-brand: var(--colors-brand-300);
+  
 
   /* Border feature icon (light mode) */
   --featured-icon-modern-border: var(--colors-gray-light-mode-200);
@@ -133,6 +135,7 @@
   --text-brand-secondary: var(--colors-brand-700);
 
   /* Text placeholder (light mode) */
+  --text-placeholder: var(--colors-gray-light-mode-500);
   --text-placeholder_subtle: var(--colors-gray-light-mode-300);
 
   /* Button primary background (light mode)  */
@@ -192,6 +195,7 @@
 
     /* Border primary (light mode) */
     --border-brand-solid: var(--colors-brand-500);
+    --border-brand: var(--colors-brand-400);
 
     /* Border feature icon (dark mode) */
     --featured-icon-modern-border: var(--colors-gray-dark-mode-700);
@@ -206,6 +210,7 @@
     --text-brand-secondary: var(--colors-gray-dark-mode-300);
 
     /* Text placeholder (light mode) */
+    --text-placeholder: var(--colors-gray-dark-mode-500);
     --text-placeholder_subtle: var(--colors-gray-dark-mode-700);
 
     /* Button primary background (dark mode)  */

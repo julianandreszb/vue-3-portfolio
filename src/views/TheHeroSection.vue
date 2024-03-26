@@ -6,7 +6,7 @@ import VueButton from '@/components/VueButton.vue'
 <template>
   <section class="section-container hero-container">
     <section class="hero">
-      <img :src="imagePath" alt="" class="hero-img" />
+      <img :src="imagePath" alt="" class="contact-img" />
       <div class="hero-content-container">
         <div class="hero-content">
           <h2 class="hero-heading">Clean code, beautiful design, Full-stack mastered</h2>
@@ -15,7 +15,12 @@ import VueButton from '@/components/VueButton.vue'
             ideas to life through web development, from design to deployment.
           </p>
         </div>
-        <VueButton class="btn-download-cv" hierarchy="Primary" size="xl" state="Default"
+        <VueButton
+          class="btn-download-cv"
+          hierarchy="Primary"
+          size="xl"
+          state="Default"
+          type="button"
           >Download CV
         </VueButton>
       </div>
@@ -65,7 +70,7 @@ import VueButton from '@/components/VueButton.vue'
     flex-direction: row-reverse;
   }
 
-  .hero-img {
+  .contact-img {
     max-width: 50%;
     object-fit: cover;
   }

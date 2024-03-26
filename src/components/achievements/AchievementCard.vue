@@ -14,6 +14,7 @@ import VueButton from '@/components/VueButton.vue'
         hierarchy="Secondary color"
         size="sm"
         state="Default"
+        type="button"
         >Show credential</VueButton
       >
       <p class="achievement-skills-text">

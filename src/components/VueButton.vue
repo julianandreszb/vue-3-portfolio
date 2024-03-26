@@ -5,7 +5,8 @@ import { reactive } from 'vue'
 const props = withDefaults(defineProps<IButton>(), {
   size: 'md',
   hierarchy: 'Primary',
-  state: 'Default'
+  state: 'Default',
+  type: 'button'
 })
 
 const classObject = reactive({
@@ -21,7 +22,7 @@ const classObject = reactive({
 </script>
 
 <template>
-  <button :class="classObject">
+  <button :class="classObject" :type="props.type">
     <slot></slot>
   </button>
 </template>
