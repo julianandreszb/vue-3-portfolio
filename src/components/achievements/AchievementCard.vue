@@ -1,14 +1,21 @@
 <script lang="ts" setup>
 import VueButton from '@/components/VueButton.vue'
+import type { IAchievementCard } from '@/TypescriptDefinitions/IAchievementCard'
+import { formatSkills } from '@/utils/UtilsArray'
+const props = defineProps<{ achievementCard: IAchievementCard }>()
 </script>
 
 <template>
   <article class="achievement-card">
-    <img alt="Git Icon" class="achievement-icon" src="@/assets/icons/iconGit.png" />
+    <img
+      :alt="props.achievementCard.icon.alt"
+      :src="props.achievementCard.icon.src"
+      class="achievement-icon"
+    />
     <div class="achievement-text-container">
-      <h2 class="achievement-heading">Clean Code</h2>
-      <h3 class="achievement-subheading">Udemy</h3>
-      <h3 class="achievement-subheading-date-range">Issued Jul 2021</h3>
+      <h2 class="achievement-heading">{{ props.achievementCard.heading }}</h2>
+      <h3 class="achievement-subheading">{{ props.achievementCard.certificationProvider }}</h3>
+      <h3 class="achievement-subheading-date-range">{{ props.achievementCard.date }}</h3>
       <VueButton
         class="achievement-show-credential-button"
         hierarchy="Secondary color"
@@ -18,7 +25,8 @@ import VueButton from '@/components/VueButton.vue'
         >Show credential</VueButton
       >
       <p class="achievement-skills-text">
-        <span class="achievement-skills-label">Skills: </span>CSS • Git
+        <span class="achievement-skills-label">Skills: </span
+        >{{ formatSkills(props.achievementCard.skills, 4, ' • ') }}
       </p>
     </div>
   </article>
@@ -66,13 +74,14 @@ import VueButton from '@/components/VueButton.vue'
   padding-block: var(--spacing-xs) var(--spacing-xl);
 }
 
-.achievement-skills-label {
-  @include text-styles.text-xs-semibold;
-  color: var(--text-secondary);
-}
-
 .achievement-skills-text {
   @include text-styles.text-xs-regular;
+  color: var(--text-secondary);
+  margin-block-start: var(--spacing-xl);
+}
+
+.achievement-skills-label {
+  @include text-styles.text-xs-semibold;
   color: var(--text-secondary);
 }
 
@@ -105,7 +114,7 @@ import VueButton from '@/components/VueButton.vue'
   }
 
   .achievement-skills-label {
-    @include text-styles.text-sm-regular;
+    @include text-styles.text-sm-semibold;
   }
 }
 </style>

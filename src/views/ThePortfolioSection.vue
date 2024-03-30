@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import BlogCard from '@/components/portfolio/BlogCard.vue'
+import appConfig from '../../app.config'
 </script>
 
 <template>
@@ -21,10 +22,11 @@ import BlogCard from '@/components/portfolio/BlogCard.vue'
         </select>
       </section>
       <div class="portfolio-cards-container">
-        <BlogCard></BlogCard>
-        <BlogCard></BlogCard>
-        <BlogCard></BlogCard>
-        <BlogCard></BlogCard>
+        <BlogCard
+          v-for="blogCard in appConfig.sections.portfolio.items"
+          :key="blogCard.id"
+          :blog-card="blogCard"
+        ></BlogCard>
       </div>
     </section>
   </section>

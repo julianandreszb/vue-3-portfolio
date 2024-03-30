@@ -1,19 +1,21 @@
 <script lang="ts" setup>
-import imagePath from '@/assets/images/imgHero.png'
 import VueButton from '@/components/VueButton.vue'
+import appConfig from '../../app.config'
 </script>
 
 <template>
   <section class="section-container hero-container">
     <section class="hero">
-      <img :src="imagePath" alt="" class="contact-img" />
+      <img
+        :alt="appConfig.sections.hero.image.alt"
+        :src="appConfig.sections.hero.image.src"
+        class="contact-img"
+        fetchpriority="high"
+      />
       <div class="hero-content-container">
         <div class="hero-content">
-          <h2 class="hero-heading">Clean code, beautiful design, Full-stack mastered</h2>
-          <p class="hero-supporting-text">
-            More than 10+ years of experience, fluent in JavaScript, Vue, PHP, and Rust. Bringing
-            ideas to life through web development, from design to deployment.
-          </p>
+          <h2 class="hero-heading">{{ appConfig.sections.hero.heading }}</h2>
+          <p class="hero-supporting-text">{{ appConfig.sections.hero.subheading }}</p>
         </div>
         <VueButton
           class="btn-download-cv"
@@ -21,7 +23,7 @@ import VueButton from '@/components/VueButton.vue'
           size="xl"
           state="Default"
           type="button"
-          >Download CV
+          >{{ appConfig.sections.hero.downloadCvText }}
         </VueButton>
       </div>
     </section>

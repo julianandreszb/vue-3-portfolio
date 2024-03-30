@@ -1,13 +1,17 @@
 <script lang="ts" setup>
 import StepBase from '@/components/timeline/StepBase.vue'
+import appConfig from '../../app.config'
 </script>
 
 <template>
   <section class="experience section-container">
-    <h2 class="portfolio-heading">Experience</h2>
+    <h2 class="portfolio-heading">{{ appConfig.sections.experience.heading }}</h2>
     <div>
-      <StepBase></StepBase>
-      <StepBase></StepBase>
+      <StepBase
+        v-for="stepBase in appConfig.sections.experience.items"
+        :key="stepBase.id"
+        :step-base="stepBase"
+      ></StepBase>
     </div>
   </section>
 </template>
@@ -28,11 +32,5 @@ import StepBase from '@/components/timeline/StepBase.vue'
   .portfolio-heading {
     @include text-styles.display-md-semibold;
   }
-}
-
-@container (min-width: 1280px) {
-  /*.experience-heading {
-    @include text-styles.display-md-semibold;
-  }*/
 }
 </style>

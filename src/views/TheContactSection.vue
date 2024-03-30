@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import VueButton from '@/components/VueButton.vue'
 import emailjs from '@emailjs/browser'
-import { computed, onMounted, reactive, ref, watch, watchEffect } from 'vue'
-import imagePath from '@/assets/images/imgHero.png'
+import { computed, onMounted, reactive, ref } from 'vue'
+import appConfig from '../../app.config'
 
 emailjs.init({
   publicKey: import.meta.env.VITE_API_EMAILJS_PUBLIC_KEY
@@ -98,7 +98,7 @@ function submitContactForm(event: Event) {
 
 <template>
   <section class="contact section-container">
-    <h2 class="contact-heading">Contact</h2>
+    <h2 class="contact-heading">{{ appConfig.sections.contact.heading }}</h2>
     <div class="contact-content-container">
       <form action="" class="contact-form" @submit.prevent="submitContactForm">
         <div class="form-group">
@@ -133,8 +133,6 @@ function submitContactForm(event: Event) {
             required
           ></textarea>
         </div>
-
-        <!-- div :data-sitekey="reCaptchaKey" :data-theme="preferColorScheme" class="g-recaptcha"></div-->
         <div
           ref="recaptchaContainer"
           :data-sitekey="reCaptchaKey"
@@ -147,7 +145,11 @@ function submitContactForm(event: Event) {
           >
         </div>
       </form>
-      <img :src="imagePath" alt="" class="contact-img" />
+      <img
+        :alt="appConfig.sections.contact.image.alt"
+        :src="appConfig.sections.contact.image.src"
+        class="contact-img"
+      />
     </div>
   </section>
 </template>

@@ -1,0 +1,162 @@
+export default {
+  documentTitle: `JulianZB Portfolio`,
+  sections: {
+    hero: {
+      image: {
+        src: 'https://via.placeholder.com/600',
+        alt: 'Image Description'
+      },
+      heading: 'Welcome to the website!',
+      subheading: 'This is a simple website built with React and TypeScript.',
+      downloadCvText: 'Download CV'
+    },
+    experience: {
+      heading: 'Experience',
+      items: [
+        {
+          id: 0,
+          heading: 'Frontend Developer',
+          employmentForm: 'Full-time',
+          company: 'Company A',
+          employmentDate: '2021 - Present',
+          description:
+            'Developed and maintained the frontend of a website using React and TypeScript.',
+          skills: ['React', 'TypeScript', 'HTML', 'CSS']
+        },
+        {
+          id: 1,
+          heading: 'Backend Developer',
+          employmentForm: 'Part-time',
+          company: 'Company B',
+          employmentDate: '2019 - 2021',
+          description:
+            'Developed and maintained the backend of a website using Node.js and Express.',
+          skills: ['Node.js', 'Express', 'MongoDB']
+        }
+      ]
+    },
+    portfolio: {
+      heading: 'Portfolio',
+      items: [
+        {
+          id: 0,
+          image: {
+            src: 'https://via.placeholder.com/250',
+            alt: 'Image Description'
+          },
+          heading: 'UX review presentations',
+          company: 'Company A',
+          date: new Date(2023, 11, 30),
+          description: 'Presented UX review findings to stakeholders.',
+          badges: [
+            { id: 0, name: 'React' },
+            { id: 1, name: 'TypeScript' },
+            { id: 3, name: 'HTML' },
+            { id: 4, name: 'CSS' },
+            { id: 5, name: 'JavaScript' }
+          ]
+        },
+        {
+          id: 1,
+          image: {
+            src: 'https://via.placeholder.com/250',
+            alt: 'Image Description'
+          },
+          heading: 'Design system development',
+          company: 'Company B',
+          date: new Date(2023, 11, 30),
+          description: 'Developed a design system for the company.',
+          badges: [
+            { id: 0, name: 'Node.js' },
+            { id: 1, name: 'Express' },
+            { id: 2, name: 'MongoDB' }
+          ]
+        },
+        {
+          id: 2,
+          image: {
+            src: 'https://via.placeholder.com/250',
+            alt: 'Image Description'
+          },
+          heading: 'UI design',
+          company: 'Company C',
+          date: new Date(2023, 11, 30),
+          description: 'Designed the user interface for the company website.',
+          badges: [
+            { id: 0, name: 'React' },
+            { id: 1, name: 'TypeScript' },
+            { id: 3, name: 'HTML' },
+            { id: 4, name: 'CSS' }
+          ]
+        },
+        {
+          id: 3,
+          image: {
+            src: 'https://via.placeholder.com/250',
+            alt: 'Image Description'
+          },
+          heading: 'Frontend development',
+          company: 'Company D',
+          date: new Date(2023, 11, 30),
+          description: 'Developed the frontend of the company website.',
+          badges: [
+            { id: 0, name: 'Angular' },
+            { id: 1, name: 'TypeScript' }
+          ]
+        },
+        {
+          id: 4,
+          image: {
+            src: 'https://via.placeholder.com/250',
+            alt: 'Image Description'
+          },
+          heading: 'Backend development',
+          company: 'Company E',
+          date: new Date(2023, 11, 30),
+          description: 'Developed the backend of the company website.',
+          badges: [
+            { id: 0, name: 'Node.js' },
+            { id: 1, name: 'Express' },
+            { id: 2, name: 'MongoDB' }
+          ]
+        }
+      ]
+    },
+    education: {
+      heading: 'Education/Certifications',
+      items: [
+        {
+          id: 0,
+          icon: {
+            src: 'https://via.placeholder.com/50',
+            alt: ''
+          },
+          heading: 'Bachelor of Science in Computer Science',
+          certificationProvider: 'University of ABC',
+          date: 'Issued Jul 2021',
+          certificateLink: 'https://www.example.com',
+          skills: ['React', 'TypeScript', 'HTML', 'CSS']
+        },
+        {
+          id: 1,
+          icon: {
+            src: 'https://via.placeholder.com/50',
+            alt: ''
+          },
+          heading: 'Certified Frontend Developer',
+          certificationProvider: 'XYZ Academy',
+          date: 'Issued Jul 2021',
+          certificateLink: 'https://www.example.com',
+          skills: ['Node.js', 'Express', 'MongoDB']
+        }
+      ]
+    },
+    contact: {
+      heading: 'Contact',
+      image: {
+        src: 'https://via.placeholder.com/600',
+        alt: 'Image Description'
+      }
+    }
+  }
+}

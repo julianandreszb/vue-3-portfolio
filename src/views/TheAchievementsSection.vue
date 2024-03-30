@@ -1,20 +1,17 @@
 <script lang="ts" setup>
 import AchievementCard from '@/components/achievements/AchievementCard.vue'
 import SectionDivider from '@/components/SectionDivider.vue'
+import appConfig from '../../app.config'
 </script>
 
 <template>
   <section class="section-container achievements">
     <h2 class="achievements-heading">Education/Certifications</h2>
     <section class="achievements-cards-container">
-      <AchievementCard />
-      <SectionDivider />
-      <AchievementCard />
-      <SectionDivider />
-      <AchievementCard />
-      <SectionDivider />
-      <AchievementCard />
-      <SectionDivider />
+      <template v-for="card in appConfig.sections.education.items" :key="card.id">
+        <AchievementCard :achievement-card="card" />
+        <SectionDivider />
+      </template>
     </section>
   </section>
 </template>
