@@ -1,5 +1,25 @@
 <script lang="ts" setup>
 import ProgressStep from '@/components/timeline/StepProgress.vue'
+import type { IStepBase } from '@/TypescriptDefinitions/IStepBase'
+/*import type { ISkill } from '@/TypescriptDefinitions/ISkill'*/
+import { formatSkills } from '@/utils/UtilsArray'
+
+defineProps<{ stepBase: IStepBase }>()
+
+/*const formatSkills = (skills: ISkill[]) => {
+  const skillsLength = skills.length
+  let formattedSkills = ''
+  if (skillsLength) {
+    if (skillsLength > 3) {
+      const remainingSkills = skillsLength - 3
+      const remainingSkillsWord = remainingSkills > 1 ? 'Skills' : 'Skill'
+      formattedSkills = `${skills.slice(0, 3).join(',')} and ${remainingSkills}+ ${remainingSkillsWord}`
+    } else {
+      formattedSkills = `${skills.join(', ')}`
+    }
+  }
+  return formattedSkills
+}*/
 </script>
 
 <template>
@@ -7,16 +27,15 @@ import ProgressStep from '@/components/timeline/StepProgress.vue'
     <ProgressStep />
     <div class="step-content-container">
       <div class="step-headers-container">
-        <h2 class="step-heading">Full-stack Web Developer</h2>
-        <span class="step-subheading">LifeFile LLC • Full-time</span>
-        <span class="step-subheading-date-range">2014 - 2024</span>
+        <h2 class="step-heading">{{ stepBase.heading }}</h2>
+        <span class="step-subheading">{{
+          `${stepBase.company} • ${stepBase.employmentForm}`
+        }}</span>
+        <span class="step-subheading-date-range">{{ stepBase.employmentDate }}</span>
       </div>
       <div class="step-text-container">
-        <p class="step-supporting-text">
-          Lorem ipsum dolor sit amet consectetur. Pharetra feugiat morbi vel odio mauris arcu
-          turpis. Mi varius ante vel enim id ornare nam.
-        </p>
-        <span class="step-text-items">Skill One, Skill Two and 3+ Skills</span>
+        <p class="step-supporting-text">{{ stepBase.description }}</p>
+        <span class="step-text-items">{{ formatSkills(stepBase.skills, 3, ', ') }}</span>
       </div>
     </div>
   </section>
@@ -89,8 +108,5 @@ import ProgressStep from '@/components/timeline/StepProgress.vue'
   .step-supporting-text {
     @include text-styles.text-md-regular;
   }
-}
-
-@container (min-width: 1280px) {
 }
 </style>

@@ -1,26 +1,31 @@
 <script lang="ts" setup>
-import imageCard from '@/assets/images/imgCard.png'
+import type { IBlogCard } from '@/TypescriptDefinitions/IBlogCard'
+
+const props = defineProps<{ blogCard: IBlogCard }>()
+
+const projectDate = props.blogCard.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric'
+})
 </script>
 
 <template>
-  <section class="card">
-    <img :src="imageCard" alt="" class="card-image" />
+  <article class="card">
+    <img :alt="props.blogCard.image.alt" :src="props.blogCard.image.src" class="card-image" />
     <div class="card-content">
       <div class="card-text-container">
-        <h3 class="card-subheading-date-range">LifeFile • 20 Jan 2024</h3>
-        <h2 class="card-heading">UX review presentations</h2>
-        <p class="step-supporting-text">
-          How do you create compelling presentations that wow your colleagues and impress your How
-          do you create compelling presentations that wow your colleagues and impress your managers?
-        </p>
+        <h3 class="card-subheading-date-range">{{ props.blogCard.company }} • {{ projectDate }}</h3>
+        <h2 class="card-heading">{{ props.blogCard.heading }}</h2>
+        <p class="step-supporting-text">{{ props.blogCard.description }}</p>
       </div>
       <ul class="card-categories">
-        <li class="badge">Vue</li>
-        <li class="badge">UI/UX</li>
-        <li class="badge">Laravel</li>
+        <li v-for="badge in props.blogCard.badges" :key="badge.id" class="badge">
+          {{ badge.name }}
+        </li>
       </ul>
     </div>
-  </section>
+  </article>
 </template>
 
 <style lang="scss" scoped>
@@ -35,6 +40,7 @@ import imageCard from '@/assets/images/imgCard.png'
 
 .card-image {
   border-radius: var(--radius-2xl);
+  object-fit: cover; /* To maintain aspect ratio */
 }
 
 .card-content {
@@ -68,6 +74,7 @@ import imageCard from '@/assets/images/imgCard.png'
 
 .card-categories {
   @include flex.row-gap-8;
+  flex-wrap: wrap;
 }
 
 .badge {

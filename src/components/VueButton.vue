@@ -1,15 +1,17 @@
-<script setup lang="ts">
-import type { IButton } from '@/utils/typeScriptDefinitions/IButton'
+<script lang="ts" setup>
+import type { IButton } from '@/TypescriptDefinitions/IButton'
 import { reactive } from 'vue'
 
 const props = withDefaults(defineProps<IButton>(), {
   size: 'md',
   hierarchy: 'Primary',
-  state: 'Default'
+  state: 'Default',
+  type: 'button'
 })
 
 const classObject = reactive({
   'btn-primary': props.hierarchy === 'Primary',
+  'btn-secondary': props.hierarchy === 'Secondary color',
 
   'btn-sm': props.size === 'sm',
   'btn-md': props.size === 'md',
@@ -20,12 +22,12 @@ const classObject = reactive({
 </script>
 
 <template>
-  <button :class="classObject">
+  <button :class="classObject" :type="props.type">
     <slot></slot>
   </button>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @use 'src/assets/styles/text-styles';
 
 button {
@@ -45,6 +47,27 @@ button {
     background-color: var(--button-primary-bg_hover);
     color: var(--button-primary-fg_hover);
     border: 0.1rem solid var(--button-primary-border_hover);
+  }
+}
+
+.btn-secondary {
+  background-color: var(--button-secondary-color-bg);
+  color: var(--button-secondary-color-fg);
+  border: 0.1rem solid var(--button-secondary-color-border);
+
+  &:hover {
+    background-color: var(--button-secondary-color-bg_hover);
+    color: var(--button-secondary-color-fg_hover);
+    border: 0.1rem solid var(--button-secondary-color-border_hover);
+  }
+
+  &:focus {
+    background-color: var(--button-secondary-color-bg_hover);
+    color: var(--button-secondary-color-fg_hover);
+    border: 0.1rem solid var(--button-secondary-color-border);
+    box-shadow:
+      0 0 0 0.2rem var(--border-brand-solid),
+      0 0 0 0.6rem color-mix(in srgb, var(--bg-brand-primary) 50%, transparent);
   }
 }
 

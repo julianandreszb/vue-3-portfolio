@@ -119,6 +119,11 @@
 
   /* Border primary (light mode) */
   --border-brand-solid: var(--colors-brand-600);
+  --border-brand: var(--colors-brand-300);
+  
+
+  /* Border feature icon (light mode) */
+  --featured-icon-modern-border: var(--colors-gray-light-mode-200);
 
   /* Text color (light mode) */
   --text-primary: var(--colors-gray-light-mode-900);
@@ -130,6 +135,7 @@
   --text-brand-secondary: var(--colors-brand-700);
 
   /* Text placeholder (light mode) */
+  --text-placeholder: var(--colors-gray-light-mode-500);
   --text-placeholder_subtle: var(--colors-gray-light-mode-300);
 
   /* Button primary background (light mode)  */
@@ -139,6 +145,23 @@
   --button-primary-fg_hover: var(--colors-base-white);
   --button-primary-border: var(--colors-brand-600);
   --button-primary-border_hover: var(--colors-brand-700);
+
+  /* Button secondary (light mode)  */
+  --button-secondary-bg: var(--colors-base-white);
+  --button-secondary-bg_hover: var(--colors-gray-light-mode-50);
+  --button-secondary-fg: var(--colors-gray-light-mode-700);
+  --button-secondary-fg_hover: var(--colors-gray-light-mode-800);
+  --button-secondary-border: var(--colors-gray-light-mode-300);
+  --button-secondary-border_hover: var(--colors-gray-light-mode-300);
+
+  /* Button secondary color (light mode)  */
+  --button-secondary-color-bg: var(--colors-base-white);
+  --button-secondary-color-bg_hover: var(--colors-brand-50);
+  --button-secondary-color-fg: var(--colors-brand-700);
+  --button-secondary-color-fg_hover: var(--colors-brand-800);
+  --button-secondary-color-border: var(--colors-brand-300);
+  --button-secondary-color-border_hover: var(--colors-brand-300);
+  
 
   /* Button ternary foreground (light mode)  */
   --button-tertiary-fg: var(--colors-gray-light-mode-600);
@@ -172,6 +195,10 @@
 
     /* Border primary (light mode) */
     --border-brand-solid: var(--colors-brand-500);
+    --border-brand: var(--colors-brand-400);
+
+    /* Border feature icon (dark mode) */
+    --featured-icon-modern-border: var(--colors-gray-dark-mode-700);
 
     /* Text color (dark mode) */
     --text-primary: var(--colors-gray-dark-mode-50);
@@ -183,6 +210,7 @@
     --text-brand-secondary: var(--colors-gray-dark-mode-300);
 
     /* Text placeholder (light mode) */
+    --text-placeholder: var(--colors-gray-dark-mode-500);
     --text-placeholder_subtle: var(--colors-gray-dark-mode-700);
 
     /* Button primary background (dark mode)  */
@@ -192,6 +220,22 @@
     --button-primary-fg_hover: var(--colors-base-white);
     --button-primary-border: var(--colors-brand-600);
     --button-primary-border_hover: var(--colors-brand-700);
+    
+    /* Button secondary (dark mode)  */
+    --button-secondary-bg: var(--colors-gray-dark-mode-900);
+    --button-secondary-bg_hover: var(--colors-gray-dark-mode-800);
+    --button-secondary-fg: var(--colors-gray-dark-mode-300);
+    --button-secondary-fg_hover: var(--colors-gray-dark-mode-100);
+    --button-secondary-border: var(--colors-gray-dark-mode-700);
+    --button-secondary-border_hover: var(--colors-gray-dark-mode-700);
+
+    /* Button secondary color (dark mode)  */
+    --button-secondary-color-bg: var(--colors-gray-dark-mode-900);
+    --button-secondary-color-bg_hover: var(--colors-gray-dark-mode-800);
+    --button-secondary-color-fg: var(--colors-gray-dark-mode-300);
+    --button-secondary-color-fg_hover: var(--colors-gray-dark-mode-100);
+    --button-secondary-color-border: var(--colors-gray-dark-mode-700);
+    --button-secondary-color-border_hover: var(--colors-gray-dark-mode-700);
 
     /* Button ternary foreground (dark mode)  */
     --button-tertiary-fg: var(--colors-gray-dark-mode-400);
