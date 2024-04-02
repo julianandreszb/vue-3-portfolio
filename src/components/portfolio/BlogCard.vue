@@ -40,6 +40,7 @@ const projectDate = props.blogCard.date.toLocaleDateString('en-US', {
 
 .card-image {
   border-radius: var(--radius-2xl);
+  object-fit: cover; /* To maintain aspect ratio */
 }
 
 .card-content {

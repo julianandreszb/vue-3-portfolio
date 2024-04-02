@@ -1,7 +1,8 @@
 <script lang="ts" setup>
+import vueRecaptcha from 'vue3-recaptcha2'
 import VueButton from '@/components/VueButton.vue'
 import emailjs from '@emailjs/browser'
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import appConfig from '../../app.config'
 
 emailjs.init({
@@ -9,7 +10,7 @@ emailjs.init({
 })
 
 const reCaptchaKey = import.meta.env.VITE_API_GOOGLE_RE_CAPTCHA_SITE_KEY
-
+const captchaToken = ref('')
 const emailMessage = reactive({
   fromName: '',
   userLastName: '',
@@ -19,14 +20,12 @@ const emailMessage = reactive({
 })
 
 function sendEmail() {
-  const captchaToken = grecaptcha.getResponse()
-
   const templateParams = {
     to_name: import.meta.env.VITE_API_TEMPLATE_TO_NAME,
     from_name: emailMessage.fromName.replace(/\b\w/g, (char) => char.toUpperCase()),
     user_email: emailMessage.userEmail,
     message: emailMessage.message,
-    'g-recaptcha-response': captchaToken
+    'g-recaptcha-response': captchaToken.value
   }
 
   emailjs
@@ -37,37 +36,30 @@ function sendEmail() {
     )
     .then(
       function (response) {
+        //TODO: Show dialog
         console.log('SUCCESS!', response.status, response.text)
       },
       function (err) {
+        //TODO: Show dialog
         console.log('FAILED...', err)
       }
     )
 }
 
-const recaptchaContainer = ref(null)
+const recaptchaContainer = ref<any>(null)
 
-onMounted(() => {
-  const script = document.createElement('script')
-  script.src = 'https://www.google.com/recaptcha/api.js'
-  script.async = true
-  script.defer = true
-  script.onload = () => {
-    const intervalId = setInterval(() => {
-      if (window.grecaptcha && window.grecaptcha.render) {
-        clearInterval(intervalId)
-        // Check if the reCAPTCHA widget has already been rendered in the element
-        if (!recaptchaContainer.value.firstChild) {
-          grecaptcha.render(recaptchaContainer.value, {
-            sitekey: reCaptchaKey,
-            theme: preferColorScheme
-          })
-        }
-      }
-    }, 100)
+function recaptchaVerified(response: string) {
+  captchaToken.value = response
+}
+function recaptchaExpired() {
+  if (recaptchaContainer.value) {
+    recaptchaContainer.value.reset()
   }
-  document.head.appendChild(script)
-})
+}
+function recaptchaFailed() {}
+function recaptchaError(reason: string) {
+  console.error(reason)
+}
 
 const preferColorScheme = computed(() => {
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -82,8 +74,8 @@ function submitContactForm(event: Event) {
 
   // Check if the form is valid
   if (form.checkValidity()) {
-    const captchaToken = grecaptcha.getResponse()
-    if (!captchaToken) {
+    if (!captchaToken.value) {
+      // TODO: Show dialog
       alert('Please complete the reCAPTCHA')
       return
     }
@@ -113,7 +105,7 @@ function submitContactForm(event: Event) {
           />
         </div>
         <div class="form-group">
-          <label for="email">Email {{ emailMessage.userEmail }}</label>
+          <label for="email">Email</label>
           <input
             id="email"
             v-model="emailMessage.userEmail"
@@ -133,12 +125,19 @@ function submitContactForm(event: Event) {
             required
           ></textarea>
         </div>
-        <div
+        <vue-recaptcha
+          v-show="true"
           ref="recaptchaContainer"
-          :data-sitekey="reCaptchaKey"
-          :data-theme="preferColorScheme"
-          class="g-recaptcha"
-        ></div>
+          :loading-timeout="30000"
+          :sitekey="reCaptchaKey"
+          :theme="preferColorScheme"
+          size="normal"
+          @error="recaptchaError"
+          @expire="recaptchaExpired"
+          @fail="recaptchaFailed"
+          @verify="recaptchaVerified"
+        >
+        </vue-recaptcha>
         <div class="form-group">
           <VueButton hierarchy="Primary" size="xl" state="Default" type="submit"
             >Send message</VueButton
