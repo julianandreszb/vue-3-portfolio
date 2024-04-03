@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { IBlogCard } from '@/TypescriptDefinitions/IBlogCard'
+import type { IBlogCard } from '@/typescriptDefinitions/IBlogCard'
 
 const props = defineProps<{ blogCard: IBlogCard }>()
 

@@ -1,6 +1,7 @@
-import type { IBadge } from '@/TypescriptDefinitions/IBadge'
+import type { IBadge } from '@/typescriptDefinitions/IBadge'
 
 interface IBlogCard {
+  id: number
   image: {
     src: string
     alt: string
@@ -10,6 +11,7 @@ interface IBlogCard {
   date: Date
   description: string
   badges: Array<IBadge>
+  featured?: boolean
 }
 
 export type { IBlogCard }

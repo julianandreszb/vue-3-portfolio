@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import ProgressStep from '@/components/timeline/StepProgress.vue'
-import type { IStepBase } from '@/TypescriptDefinitions/IStepBase'
+import type { IStepBase } from '@/typescriptDefinitions/IStepBase'
 /*import type { ISkill } from '@/TypescriptDefinitions/ISkill'*/
 import { formatSkills } from '@/utils/UtilsArray'
 

@@ -1,6 +1,67 @@
 <script lang="ts" setup>
 import BlogCard from '@/components/portfolio/BlogCard.vue'
 import appConfig from '../../app.config'
+import type { IBlogCard } from '@/typescriptDefinitions/IBlogCard'
+import { computed, type ComputedRef, reactive, ref } from 'vue'
+import type { IBadge } from '@/typescriptDefinitions/IBadge'
+
+const filterSelector = ref('most-recent')
+const isViewAllBadgesActive = ref(true)
+const portfolioBadges = reactive<{ [key: string]: IBadge }>({})
+const filteredItems: ComputedRef<IBlogCard[]> = computed(() => {
+  let items = [...portfolioItems]
+
+  if (filterSelector.value === 'older-first') {
+    items.sort(
+      (a: IBlogCard, b: IBlogCard) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    )
+  }
+
+  if (filterSelector.value === 'most-recent') {
+    items.sort(
+      (a: IBlogCard, b: IBlogCard) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    )
+  }
+
+  if (filterSelector.value === 'featured') {
+    items = items.filter((item: IBlogCard) => item?.featured)
+  }
+
+  if (!isViewAllBadgesActive.value && Object.keys(portfolioBadges).length) {
+    items = items.filter((item: IBlogCard) => {
+      return item.badges.some((badge) => portfolioBadges[badge.name].active)
+    })
+  }
+
+  return items
+})
+const portfolioItems: IBlogCard[] = appConfig.sections.portfolio.items
+
+portfolioItems.forEach((item: IBlogCard) => {
+  item.badges.forEach((badge) => {
+    if (!Object.prototype.hasOwnProperty.call(portfolioBadges, badge.name)) {
+      portfolioBadges[badge.name] = badge
+    }
+  })
+})
+
+function toggleBadge(badge: IBadge) {
+  badge.active = !badge.active
+
+  isViewAllBadgesActive.value = !isAtLeastOneBadgeActive()
+}
+
+function toggleViewAll() {
+  isViewAllBadgesActive.value = true
+
+  Object.values(portfolioBadges).forEach((badge) => {
+    badge.active = false
+  })
+}
+
+function isAtLeastOneBadgeActive() {
+  return Object.values(portfolioBadges).some((badge) => badge.active)
+}
 </script>
 
 <template>
@@ -9,21 +70,28 @@ import appConfig from '../../app.config'
     <section class="portfolio">
       <section class="portfolio-tabs-sort">
         <ul class="portfolio-horizontal-tabs">
-          <li class="tab active">View all</li>
-          <li class="tab">Vue</li>
-          <li class="tab">Laravel</li>
-          <li class="tab">Software Engineering</li>
-          <li class="tab">Vanilla JavaScript</li>
+          <li :class="{ active: isViewAllBadgesActive }" class="tab" @click="toggleViewAll">
+            View all
+          </li>
+          <li
+            v-for="badge in portfolioBadges"
+            :key="badge.id"
+            :class="{ active: badge.active }"
+            class="tab"
+            @click="toggleBadge(badge)"
+          >
+            {{ badge.name }}
+          </li>
         </ul>
-        <select class="portfolio-sort-cards-selector">
-          <option value="">Most Recent</option>
+        <select v-model="filterSelector" class="portfolio-sort-cards-selector">
+          <option value="most-recent">Most Recent</option>
           <option value="older-first">Older First</option>
           <option value="featured">Featured</option>
         </select>
       </section>
       <div class="portfolio-cards-container">
         <BlogCard
-          v-for="blogCard in appConfig.sections.portfolio.items"
+          v-for="blogCard in filteredItems"
           :key="blogCard.id"
           :blog-card="blogCard"
         ></BlogCard>
@@ -90,9 +158,14 @@ import appConfig from '../../app.config'
 
 .tab {
   @include text-styles.text-md-semibold;
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  -webkit-user-select: none; /* Chrome, Safari, Opera */
   color: var(--text-quaternary);
-  padding-inline: var(--spacing-xs);
+  cursor: pointer;
   padding-block: var(--spacing-lg);
+  padding-inline: var(--spacing-xs);
+  user-select: none;
   white-space: nowrap;
 
   &.active {
@@ -108,10 +181,11 @@ import appConfig from '../../app.config'
 }
 
 .portfolio-cards-container {
+  border-radius: var(--radius-2xl);
+  column-gap: var(--spacing-xl);
   display: grid;
-  gap: 1.6rem;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-  border-radius: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  row-gap: var(--spacing-4xl);
 }
 
 @container (min-width: 1280px) {

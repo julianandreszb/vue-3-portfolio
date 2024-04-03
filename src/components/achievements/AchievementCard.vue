@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import VueButton from '@/components/VueButton.vue'
-import type { IAchievementCard } from '@/TypescriptDefinitions/IAchievementCard'
+import type { IAchievementCard } from '@/typescriptDefinitions/IAchievementCard'
 import { formatSkills } from '@/utils/UtilsArray'
 const props = defineProps<{ achievementCard: IAchievementCard }>()
 </script>

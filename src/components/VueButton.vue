@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { IButton } from '@/TypescriptDefinitions/IButton'
+import type { IButton } from '@/typescriptDefinitions/IButton'
 import { reactive } from 'vue'
 
 const props = withDefaults(defineProps<IButton>(), {

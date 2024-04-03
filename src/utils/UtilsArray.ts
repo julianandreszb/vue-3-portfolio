@@ -1,4 +1,4 @@
-import type { ISkill } from '@/TypescriptDefinitions/ISkill'
+import type { ISkill } from '@/typescriptDefinitions/ISkill'
 
 const formatSkills = (
   items: Array<ISkill>,
