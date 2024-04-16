@@ -12,7 +12,12 @@ const projectDate = props.blogCard.date.toLocaleDateString('en-US', {
 <template>
   <article class="card">
     <div class="card-image-container">
-      <img :alt="props.blogCard.image.alt" :src="props.blogCard.image.src" class="card-image" />
+      <img
+        :alt="props.blogCard.image.alt"
+        :src="props.blogCard.image.src"
+        class="card-image"
+        loading="lazy"
+      />
       <div class="card-buttons">
         <a
           :href="props.blogCard.links.live"

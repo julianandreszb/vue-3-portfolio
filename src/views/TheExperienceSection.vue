@@ -4,7 +4,7 @@ import appConfig from '../../app.config'
 </script>
 
 <template>
-  <section class="experience section-container">
+  <section id="experience" class="experience section-container">
     <h2 class="portfolio-heading">{{ appConfig.sections.experience.heading }}</h2>
     <div>
       <StepBase

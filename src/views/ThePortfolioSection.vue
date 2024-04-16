@@ -65,7 +65,7 @@ function isAtLeastOneBadgeActive() {
 </script>
 
 <template>
-  <section class="section-container portfolio-container">
+  <section id="portfolio" class="section-container portfolio-container">
     <h2 class="portfolio-heading">Portfolio</h2>
     <section class="portfolio">
       <section class="portfolio-tabs-sort">
