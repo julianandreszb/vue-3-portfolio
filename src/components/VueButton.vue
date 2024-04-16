@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { IButton } from '@/TypescriptDefinitions/IButton'
+import type { IButton } from '@/typescriptDefinitions/IButton'
 import { reactive } from 'vue'
 
 const props = withDefaults(defineProps<IButton>(), {
@@ -23,7 +23,9 @@ const classObject = reactive({
 
 <template>
   <button :class="classObject" :type="props.type">
+    <slot name="icon"></slot>
     <slot></slot>
+    <slot name="end-icon"></slot>
   </button>
 </template>
 
@@ -31,10 +33,12 @@ const classObject = reactive({
 @use 'src/assets/styles/text-styles';
 
 button {
-  border-radius: 8px;
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     cursor: pointer;
+    transform: scale(1.01);
   }
 }
 

@@ -1,16 +1,20 @@
 <script lang="ts" setup>
 import VueButton from '@/components/VueButton.vue'
 import appConfig from '../../app.config'
+function downloadCv() {
+  window.open(appConfig.sections.hero.downloadCvButton.downloadCvUrl, '_blank')
+}
 </script>
 
 <template>
-  <section class="section-container hero-container">
+  <section id="home" class="section-container hero-container">
     <section class="hero">
       <img
         :alt="appConfig.sections.hero.image.alt"
         :src="appConfig.sections.hero.image.src"
         class="contact-img"
         fetchpriority="high"
+        loading="eager"
       />
       <div class="hero-content-container">
         <div class="hero-content">
@@ -23,7 +27,8 @@ import appConfig from '../../app.config'
           size="xl"
           state="Default"
           type="button"
-          >{{ appConfig.sections.hero.downloadCvText }}
+          @click="downloadCv"
+          >{{ appConfig.sections.hero.downloadCvButton.downloadCvText }}
         </VueButton>
       </div>
     </section>

@@ -5,7 +5,7 @@ import appConfig from '../../app.config'
 </script>
 
 <template>
-  <section class="section-container achievements">
+  <section id="education" class="section-container achievements">
     <h2 class="achievements-heading">Education/Certifications</h2>
     <section class="achievements-cards-container">
       <template v-for="card in appConfig.sections.education.items" :key="card.id">

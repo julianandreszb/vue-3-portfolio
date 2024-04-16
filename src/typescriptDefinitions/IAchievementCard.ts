@@ -1,4 +1,4 @@
-import type { ISkill } from '@/TypescriptDefinitions/ISkill'
+import type { ISkill } from '@/typescriptDefinitions/ISkill'
 
 interface IAchievementCard {
   id: number
@@ -9,7 +9,7 @@ interface IAchievementCard {
   heading: string
   certificationProvider: string
   date: string
-  certificateLink: 'https://www.example.com'
+  certificateLink: string
   skills: Array<ISkill>
 }
 

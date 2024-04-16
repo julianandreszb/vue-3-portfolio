@@ -1,4 +1,4 @@
-<script setup lang="ts"></script>
+<script lang="ts" setup></script>
 
 <template>
   <header class="nav-heaver">
@@ -8,10 +8,20 @@
       </label>
     </div>
     <nav class="nav-menu">
-      <a class="nav-menu-item" href="/">Home</a>
-      <a class="nav-menu-item" href="/about">About</a>
-      <a class="nav-menu-item" href="/services">Services</a>
-      <a class="nav-menu-item" href="/contact">Contact</a>
+      <router-link :to="{ name: 'home', hash: '#home' }" class="nav-menu-item">Home</router-link>
+      <router-link :to="{ name: 'home', hash: '#experience' }" class="nav-menu-item"
+        >Experience</router-link
+      >
+      <router-link :to="{ name: 'home', hash: '#portfolio' }" class="nav-menu-item"
+        >Portfolio</router-link
+      >
+      <router-link :to="{ name: 'home', hash: '#education' }" class="nav-menu-item"
+        >Education/Certs</router-link
+      >
+
+      <router-link :to="{ name: 'home', hash: '#contact' }" class="nav-menu-item"
+        >Contact</router-link
+      >
     </nav>
   </header>
 </template>

@@ -89,7 +89,7 @@ function submitContactForm(event: Event) {
 </script>
 
 <template>
-  <section class="contact section-container">
+  <section id="contact" class="contact section-container">
     <h2 class="contact-heading">{{ appConfig.sections.contact.heading }}</h2>
     <div class="contact-content-container">
       <form action="" class="contact-form" @submit.prevent="submitContactForm">
@@ -138,7 +138,7 @@ function submitContactForm(event: Event) {
           @verify="recaptchaVerified"
         >
         </vue-recaptcha>
-        <div class="form-group">
+        <div class="form-group form-group-actions">
           <VueButton hierarchy="Primary" size="xl" state="Default" type="submit"
             >Send message</VueButton
           >
@@ -201,13 +201,17 @@ form {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3xl);
-  max-width: 400px;
+  /* max-width: 500px;*/
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
+}
+
+.form-group-actions {
+  margin-block-start: auto;
 }
 
 .form-control {
