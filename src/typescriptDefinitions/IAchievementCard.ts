@@ -9,7 +9,7 @@ interface IAchievementCard {
   heading: string
   certificationProvider: string
   date: string
-  certificateLink: 'https://www.example.com'
+  certificateLink: string
   skills: Array<ISkill>
 }
 

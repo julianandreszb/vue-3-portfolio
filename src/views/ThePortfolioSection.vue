@@ -103,6 +103,7 @@ function isAtLeastOneBadgeActive() {
 <style lang="scss" scoped>
 @use 'src/assets/styles/text-styles';
 @use 'src/assets/styles/flex';
+@use 'src/assets/styles/helper';
 .portfolio-container {
   container-type: inline-size;
 }
@@ -158,14 +159,11 @@ function isAtLeastOneBadgeActive() {
 
 .tab {
   @include text-styles.text-md-semibold;
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE 10+ */
-  -webkit-user-select: none; /* Chrome, Safari, Opera */
+  @include helper.disable-text-selection;
   color: var(--text-quaternary);
   cursor: pointer;
   padding-block: var(--spacing-lg);
   padding-inline: var(--spacing-xs);
-  user-select: none;
   white-space: nowrap;
 
   &.active {

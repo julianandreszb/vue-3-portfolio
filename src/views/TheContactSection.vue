@@ -201,7 +201,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3xl);
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .form-group {

@@ -6,6 +6,10 @@ interface IBlogCard {
     src: string
     alt: string
   }
+  links: {
+    github: string
+    live: string
+  }
   heading: string
   company: string
   date: Date

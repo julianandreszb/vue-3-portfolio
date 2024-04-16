@@ -24,10 +24,10 @@ const props = defineProps<{ achievementCard: IAchievementCard }>()
         type="button"
         >Show credential</VueButton
       >
-      <p class="achievement-skills-text">
-        <span class="achievement-skills-label">Skills: </span
-        >{{ formatSkills(props.achievementCard.skills, 4, ' • ') }}
-      </p>
+      <!--      <p v-if="false"  class="achievement-skills-text">-->
+      <!--        <span class="achievement-skills-label">Skills: </span-->
+      <!--        >{{ formatSkills(props.achievementCard.skills, 4, ' • ') }}-->
+      <!--      </p>-->
     </div>
   </article>
 </template>

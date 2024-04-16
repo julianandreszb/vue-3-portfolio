@@ -3,5 +3,12 @@
 }
 
 @function hexToRGB($hex) {
-  @return red($hex), green($hex), blue($hex);
+  @return rgb(red($hex), green($hex), blue($hex));
+}
+
+@mixin disable-text-selection {
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  -webkit-user-select: none; /* Chrome, Safari, Opera */
+  user-select: none;
 }
