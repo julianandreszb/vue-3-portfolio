@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 import VueButton from '@/components/VueButton.vue'
 import appConfig from '../../app.config'
-function downloadCv() {
-  window.open(appConfig.sections.hero.downloadCvButton.downloadCvUrl, '_blank')
-}
+import { openPage } from '@/utils/Functions'
 </script>
 
 <template>
@@ -27,7 +25,7 @@ function downloadCv() {
           size="xl"
           state="Default"
           type="button"
-          @click="downloadCv"
+          @click="openPage(appConfig.sections.hero.downloadCvButton.downloadCvUrl)"
           >{{ appConfig.sections.hero.downloadCvButton.downloadCvText }}
         </VueButton>
       </div>
