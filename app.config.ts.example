@@ -1,14 +1,17 @@
 export default {
-  documentTitle: `JulianZB Portfolio`,
+  documentTitle: `XYZ Portfolio`,
   sections: {
     hero: {
       image: {
-        src: 'https://via.placeholder.com/600',
+        src: 'https://source.unsplash.com/random/600x600',
         alt: 'Image Description'
       },
       heading: 'Welcome to the website!',
       subheading: 'This is a simple website built with React and TypeScript.',
-      downloadCvText: 'Download CV'
+      downloadCvButton: {
+        downloadCvText: 'Download CV',
+        downloadCvUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+      }
     },
     experience: {
       heading: 'Experience',
@@ -21,7 +24,7 @@ export default {
           employmentDate: '2021 - Present',
           description:
             'Developed and maintained the frontend of a website using React and TypeScript.',
-          skills: ['React', 'TypeScript', 'HTML', 'CSS']
+          skills: [{ name: 'React' }, { name: 'TypeScript' }, { name: 'HTML' }, { name: 'CSS' }]
         },
         {
           id: 1,
@@ -31,7 +34,7 @@ export default {
           employmentDate: '2019 - 2021',
           description:
             'Developed and maintained the backend of a website using Node.js and Express.',
-          skills: ['Node.js', 'Express', 'MongoDB']
+          skills: [{ name: 'Node.js' }, { name: 'Express' }, { name: 'MongoDB' }]
         }
       ]
     },
@@ -41,12 +44,16 @@ export default {
         {
           id: 0,
           image: {
-            src: 'https://via.placeholder.com/250',
+            src: 'https://source.unsplash.com/random/250x250',
             alt: 'Image Description'
+          },
+          links: {
+            github: 'https://www.github.com',
+            live: 'https://www.github.com'
           },
           heading: 'UX review presentations',
           company: 'Company A',
-          date: new Date(2023, 11, 30),
+          date: new Date(2020, 11, 30),
           description: 'Presented UX review findings to stakeholders.',
           badges: [
             { id: 0, name: 'React' },
@@ -54,17 +61,22 @@ export default {
             { id: 3, name: 'HTML' },
             { id: 4, name: 'CSS' },
             { id: 5, name: 'JavaScript' }
-          ]
+          ],
+          featured: true
         },
         {
           id: 1,
           image: {
-            src: 'https://via.placeholder.com/250',
+            src: 'https://source.unsplash.com/random/250x250',
             alt: 'Image Description'
+          },
+          links: {
+            github: 'https://www.github.com',
+            live: 'https://www.github.com'
           },
           heading: 'Design system development',
           company: 'Company B',
-          date: new Date(2023, 11, 30),
+          date: new Date(2021, 11, 30),
           description: 'Developed a design system for the company.',
           badges: [
             { id: 0, name: 'Node.js' },
@@ -75,12 +87,16 @@ export default {
         {
           id: 2,
           image: {
-            src: 'https://via.placeholder.com/250',
+            src: 'https://source.unsplash.com/random/250x250',
             alt: 'Image Description'
+          },
+          links: {
+            github: 'https://www.github.com',
+            live: 'https://www.github.com'
           },
           heading: 'UI design',
           company: 'Company C',
-          date: new Date(2023, 11, 30),
+          date: new Date(2022, 11, 30),
           description: 'Designed the user interface for the company website.',
           badges: [
             { id: 0, name: 'React' },
@@ -92,8 +108,12 @@ export default {
         {
           id: 3,
           image: {
-            src: 'https://via.placeholder.com/250',
+            src: 'https://source.unsplash.com/random/250x250',
             alt: 'Image Description'
+          },
+          links: {
+            github: 'https://www.github.com',
+            live: 'https://www.github.com'
           },
           heading: 'Frontend development',
           company: 'Company D',
@@ -107,12 +127,16 @@ export default {
         {
           id: 4,
           image: {
-            src: 'https://via.placeholder.com/250',
+            src: 'https://source.unsplash.com/random/250x250',
             alt: 'Image Description'
+          },
+          links: {
+            github: 'https://www.github.com',
+            live: 'https://www.github.com'
           },
           heading: 'Backend development',
           company: 'Company E',
-          date: new Date(2023, 11, 30),
+          date: new Date(2024, 11, 30),
           description: 'Developed the backend of the company website.',
           badges: [
             { id: 0, name: 'Node.js' },
@@ -135,7 +159,7 @@ export default {
           certificationProvider: 'University of ABC',
           date: 'Issued Jul 2021',
           certificateLink: 'https://www.example.com',
-          skills: ['React', 'TypeScript', 'HTML', 'CSS']
+          skills: [{ name: 'React' }, { name: 'TypeScript' }, { name: 'HTML' }, { name: 'CSS' }]
         },
         {
           id: 1,
@@ -143,18 +167,24 @@ export default {
             src: 'https://via.placeholder.com/50',
             alt: ''
           },
-          heading: 'Certified Frontend Developer',
-          certificationProvider: 'XYZ Academy',
+          heading: 'Bachelor of Science in Computer Science',
+          certificationProvider: 'University of ABC',
           date: 'Issued Jul 2021',
           certificateLink: 'https://www.example.com',
-          skills: ['Node.js', 'Express', 'MongoDB']
+          skills: [
+            { name: 'React' },
+            { name: 'TypeScript' },
+            { name: 'HTML' },
+            { name: 'CSS' },
+            { name: 'JavaScript' }
+          ]
         }
       ]
     },
     contact: {
       heading: 'Contact',
       image: {
-        src: 'https://via.placeholder.com/600',
+        src: 'https://source.unsplash.com/random/600x600',
         alt: 'Image Description'
       }
     }

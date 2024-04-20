@@ -2,6 +2,7 @@
 import VueButton from '@/components/VueButton.vue'
 import type { IAchievementCard } from '@/typescriptDefinitions/IAchievementCard'
 import { formatSkills } from '@/utils/UtilsArray'
+import { openPage } from '@/utils/Functions'
 const props = defineProps<{ achievementCard: IAchievementCard }>()
 </script>
 
@@ -22,6 +23,7 @@ const props = defineProps<{ achievementCard: IAchievementCard }>()
         size="sm"
         state="Default"
         type="button"
+        @click="openPage(props.achievementCard.certificateLink)"
         >Show credential</VueButton
       >
       <p class="achievement-skills-text">

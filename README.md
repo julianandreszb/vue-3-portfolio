@@ -1,12 +1,30 @@
-# vue-3-portfolio-ui-ux
+# Portfolio created with Vue 3 and Vite
 
-This template should help get you started developing with Vue 3 in Vite.
+Portfolio created using Vue.js version 3 with Composition API and TypeScript. Based on "Untitled UI" Figma UI design system following UI/UX principles.
 
-## Recommended IDE Setup
+
+## Create .env file
+On the .env file is the configuration for RECAPTCHA and EMAILJS
+```shell
+cp .env.example .env
+```
+- https://www.emailjs.com/docs/introduction/how-does-emailjs-work/
+- https://www.emailjs.com/docs/user-guide/adding-captcha-verification/
+
+## Create app.config.ts file
+On the app.config.ts file is the portfolio content configuration
+```shell
+cp .app.config.ts.example app.config.ts
+```
+
+## Recommended IDE Setup (IntelliJ Family)
+Do not need anything :)
+
+## Recommended IDE Setup (Visual Studio Code)
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
+## Type Support for `.vue` Imports in TS (Visual Studio Code)
 
 TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
