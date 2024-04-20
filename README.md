@@ -14,7 +14,7 @@ cp .env.example .env
 ## Create app.config.ts file
 On the app.config.ts file is the portfolio content configuration
 ```shell
-cp .app.config.ts.example app.config.ts
+cp app.config.ts.example app.config.ts
 ```
 
 ## Recommended IDE Setup (IntelliJ Family)
