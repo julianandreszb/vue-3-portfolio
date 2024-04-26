@@ -5,13 +5,15 @@ import { reactive } from 'vue'
 const props = withDefaults(defineProps<IButton>(), {
   size: 'md',
   hierarchy: 'Primary',
-  state: 'Default',
-  type: 'button'
+  state: 'Default'
 })
 
 const classObject = reactive({
+  btn: true,
+
   'btn-primary': props.hierarchy === 'Primary',
   'btn-secondary': props.hierarchy === 'Secondary color',
+  'btn-link-gray': props.hierarchy === 'Link gray',
 
   'btn-sm': props.size === 'sm',
   'btn-md': props.size === 'md',
@@ -22,19 +24,20 @@ const classObject = reactive({
 </script>
 
 <template>
-  <button :class="classObject" :type="props.type">
+  <a :class="classObject">
     <slot name="icon"></slot>
     <slot></slot>
     <slot name="end-icon"></slot>
-  </button>
+  </a>
 </template>
 
 <style lang="scss" scoped>
 @use 'src/assets/styles/text-styles';
 
-button {
+.btn {
   border-radius: var(--radius-md);
   transition: all 0.3s ease-in-out;
+  text-align: center;
 
   &:hover {
     cursor: pointer;
@@ -72,6 +75,15 @@ button {
     box-shadow:
       0 0 0 0.2rem var(--border-brand-solid),
       0 0 0 0.6rem color-mix(in srgb, var(--bg-brand-primary) 50%, transparent);
+  }
+}
+
+.btn.btn-link-gray {
+  color: var(--button-tertiary-fg);
+  padding-inline: 0;
+
+  &:hover {
+    color: var(--button-tertiary-fg_hover);
   }
 }
 

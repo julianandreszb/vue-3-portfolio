@@ -24,7 +24,6 @@ import { openPage } from '@/utils/Functions'
           hierarchy="Primary"
           size="xl"
           state="Default"
-          type="button"
           @click="openPage(appConfig.sections.hero.downloadCvButton.downloadCvUrl)"
           >{{ appConfig.sections.hero.downloadCvButton.downloadCvText }}
         </VueButton>

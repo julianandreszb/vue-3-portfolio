@@ -22,7 +22,6 @@ const props = defineProps<{ achievementCard: IAchievementCard }>()
         hierarchy="Secondary color"
         size="sm"
         state="Default"
-        type="button"
         @click="openPage(props.achievementCard.certificateLink)"
         >Show credential</VueButton
       >

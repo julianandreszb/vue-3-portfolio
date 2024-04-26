@@ -1,16 +1,26 @@
 <script lang="ts" setup>
-import vueRecaptcha from 'vue3-recaptcha2'
 import VueButton from '@/components/VueButton.vue'
 import emailjs from '@emailjs/browser'
-import { computed, reactive, ref } from 'vue'
+import { reactive, ref } from 'vue'
 import appConfig from '../../app.config'
+import VueClientRecaptcha from 'vue-client-recaptcha'
+import VueAlert from '@/components/VueAlert.vue'
+import { AlertColor } from '@/typescriptDefinitions/enums/AlertColor'
+
+const inputValue = ref(null)
+const isCaptchaValid = ref(false)
+const contactForm = ref<HTMLFormElement | null>(null)
+const vueAlert = reactive({
+  color: AlertColor.Default,
+  message: '',
+  title: '',
+  isOpen: false
+})
 
 emailjs.init({
   publicKey: import.meta.env.VITE_API_EMAILJS_PUBLIC_KEY
 })
 
-const reCaptchaKey = import.meta.env.VITE_API_GOOGLE_RE_CAPTCHA_SITE_KEY
-const captchaToken = ref('')
 const emailMessage = reactive({
   fromName: '',
   userLastName: '',
@@ -18,14 +28,20 @@ const emailMessage = reactive({
   userEmail: '',
   message: ''
 })
+function resetForm() {
+  emailMessage.fromName = ''
+  emailMessage.userLastName = ''
+  emailMessage.userFirstName = ''
+  emailMessage.userEmail = ''
+  emailMessage.message = ''
+}
 
 function sendEmail() {
   const templateParams = {
     to_name: import.meta.env.VITE_API_TEMPLATE_TO_NAME,
     from_name: emailMessage.fromName.replace(/\b\w/g, (char) => char.toUpperCase()),
     user_email: emailMessage.userEmail,
-    message: emailMessage.message,
-    'g-recaptcha-response': captchaToken.value
+    message: emailMessage.message
   }
 
   emailjs
@@ -36,54 +52,40 @@ function sendEmail() {
     )
     .then(
       function (response) {
-        //TODO: Show dialog
-        console.log('SUCCESS!', response.status, response.text)
+        resetForm()
+        if (response.status === 200) {
+          vueAlert.color = AlertColor.Success
+          vueAlert.message = 'Your message has been sent successfully!'
+          vueAlert.title = 'Success'
+          vueAlert.isOpen = true
+        }
       },
       function (err) {
-        //TODO: Show dialog
-        console.log('FAILED...', err)
+        resetForm()
+
+        vueAlert.color = AlertColor.Error
+        vueAlert.message = err.text
+        vueAlert.title = 'Error'
+        vueAlert.isOpen = true
       }
     )
 }
 
-const recaptchaContainer = ref<any>(null)
-
-function recaptchaVerified(response: string) {
-  captchaToken.value = response
-}
-function recaptchaExpired() {
-  if (recaptchaContainer.value) {
-    recaptchaContainer.value.reset()
+function submitContactForm() {
+  if (!contactForm.value) {
+    return
   }
-}
-function recaptchaFailed() {}
-function recaptchaError(reason: string) {
-  console.error(reason)
-}
-
-const preferColorScheme = computed(() => {
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark'
-  } else {
-    return 'light'
-  }
-})
-
-function submitContactForm(event: Event) {
-  const form = event.target as HTMLFormElement
 
   // Check if the form is valid
-  if (form.checkValidity()) {
-    if (!captchaToken.value) {
-      // TODO: Show dialog
-      alert('Please complete the reCAPTCHA')
+  if (contactForm.value.checkValidity()) {
+    if (!isCaptchaValid.value) {
       return
     }
 
     return sendEmail()
   } else {
     // Trigger HTML5 validation
-    form.reportValidity()
+    contactForm.value.reportValidity()
   }
 }
 </script>
@@ -92,7 +94,7 @@ function submitContactForm(event: Event) {
   <section id="contact" class="contact section-container">
     <h2 class="contact-heading">{{ appConfig.sections.contact.heading }}</h2>
     <div class="contact-content-container">
-      <form action="" class="contact-form" @submit.prevent="submitContactForm">
+      <form ref="contactForm" class="contact-form">
         <div class="form-group">
           <label for="name">Name</label>
           <input
@@ -125,21 +127,29 @@ function submitContactForm(event: Event) {
             required
           ></textarea>
         </div>
-        <vue-recaptcha
-          v-show="true"
-          ref="recaptchaContainer"
-          :loading-timeout="30000"
-          :sitekey="reCaptchaKey"
-          :theme="preferColorScheme"
-          size="normal"
-          @error="recaptchaError"
-          @expire="recaptchaExpired"
-          @fail="recaptchaFailed"
-          @verify="recaptchaVerified"
-        >
-        </vue-recaptcha>
+        <div class="form-group">
+          <label for="captcha">Captcha Code</label>
+          <input
+            id="captcha"
+            v-model="inputValue"
+            class="form-control"
+            placeholder="Enter captcha code"
+            required
+            type="text"
+          />
+          <VueClientRecaptcha
+            :value="inputValue"
+            @isValid="(isValid: boolean) => (isCaptchaValid = isValid)"
+          />
+        </div>
+        <VueAlert
+          v-model="vueAlert.isOpen"
+          :color="vueAlert.color"
+          :message="vueAlert.message"
+          :title="vueAlert.title"
+        />
         <div class="form-group form-group-actions">
-          <VueButton hierarchy="Primary" size="xl" state="Default" type="submit"
+          <VueButton hierarchy="Primary" size="xl" state="Default" @click="submitContactForm"
             >Send message</VueButton
           >
         </div>
@@ -156,6 +166,7 @@ function submitContactForm(event: Event) {
 <style lang="scss" scoped>
 @use 'src/assets/styles/text-styles';
 @use 'src/assets/styles/flex';
+@use 'sass:color';
 
 .contact {
   container-type: inline-size;
@@ -233,5 +244,17 @@ form {
   &::placeholder {
     color: var(--text-placeholder);
   }
+}
+
+.vue_client_recaptcha {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+
+:deep(.vue_client_recaptcha_icon) {
+  width: 2.4rem;
+  height: 2.4rem;
 }
 </style>

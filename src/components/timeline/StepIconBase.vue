@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { reactive } from 'vue'
 
 interface Props {
@@ -22,7 +22,7 @@ const classWrapperObject = reactive({
 
 <template>
   <!--  <div class="step-icon-wrapper" :class="classWrapperObject">-->
-  <span class="step-icon" :class="classWrapperObject"></span>
+  <span :class="classWrapperObject" class="step-icon"></span>
   <!--  </div>-->
 </template>
 
@@ -38,11 +38,10 @@ const classWrapperObject = reactive({
 .step-icon {
   background-color: var(--fg-white);
   border: 0.6rem solid var(--bg-brand-solid);
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   box-shadow:
     0 0 0 0.2rem var(--border-brand-solid),
-    /*0 0 0 0.6rem var(--bg-brand-primary);*/ 0 0 0 0.6rem
-      color-mix(in srgb, var(--bg-brand-solid) 20%, transparent);
+    0 0 0 0.6rem color-mix(in srgb, var(--bg-brand-solid) 20%, transparent);
   display: inline-block;
 }
 
@@ -50,7 +49,7 @@ const classWrapperObject = reactive({
   .step-icon {
     background-color: var(--fg-white);
     border: 0.6rem solid var(--bg-brand-solid);
-    border-radius: 999px;
+    border-radius: var(--radius-full);
     box-shadow:
       0 0 0 0.2rem var(--border-brand-solid),
       0 0 0 0.6rem color-mix(in srgb, var(--bg-brand-primary) 50%, transparent);
