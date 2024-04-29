@@ -112,6 +112,8 @@
   /* Brand (light mode) */
   --bg-brand-primary: var(--colors-brand-50);
   --bg-brand-solid: var(--colors-brand-600);
+  
+  --bg-disabled_subtle: var(--colors-gray-light-mode-50);
 
   /* Foreground (light mode) */
   --fg-white: var(--colors-base-white);
@@ -150,6 +152,8 @@
   /* Text placeholder (light mode) */
   --text-placeholder: var(--colors-gray-light-mode-500);
   --text-placeholder_subtle: var(--colors-gray-light-mode-300);
+  
+  --text-disabled: var(--colors-gray-light-mode-500);
 
   /* Button primary background (light mode)  */
   --button-primary-bg: var(--colors-brand-600);
@@ -198,6 +202,8 @@
     --bg-brand-primary: var(--colors-brand-500);
     --bg-brand-solid: var(--colors-brand-600);
 
+    --bg-disabled_subtle: var(--colors-gray-dark-mode-900);
+
     /* Foreground (dark mode) */
     --fg-white: var(--colors-base-white);
     --fg-secondary_hover: var(--colors-gray-dark-mode-200);
@@ -234,6 +240,8 @@
     /* Text placeholder (light mode) */
     --text-placeholder: var(--colors-gray-dark-mode-500);
     --text-placeholder_subtle: var(--colors-gray-dark-mode-700);
+
+    --text-disabled: var(--colors-gray-dark-mode-500);
 
     /* Button primary background (dark mode)  */
     --button-primary-bg: var(--colors-brand-600);

@@ -7,8 +7,8 @@ import VueClientRecaptcha from 'vue-client-recaptcha'
 import VueAlert from '@/components/VueAlert.vue'
 import { AlertColor } from '@/typescriptDefinitions/enums/AlertColor'
 
-const inputValue = ref(null)
 const isCaptchaValid = ref(false)
+const isSendingMessage = ref(false)
 const contactForm = ref<HTMLFormElement | null>(null)
 const vueAlert = reactive({
   color: AlertColor.Default,
@@ -26,17 +26,21 @@ const emailMessage = reactive({
   userLastName: '',
   userFirstName: '',
   userEmail: '',
-  message: ''
+  message: '',
+  captcha: ''
 })
+
 function resetForm() {
   emailMessage.fromName = ''
   emailMessage.userLastName = ''
   emailMessage.userFirstName = ''
   emailMessage.userEmail = ''
   emailMessage.message = ''
+  emailMessage.captcha = ''
 }
 
-function sendEmail() {
+async function sendEmail() {
+  isSendingMessage.value = true
   const templateParams = {
     to_name: import.meta.env.VITE_API_TEMPLATE_TO_NAME,
     from_name: emailMessage.fromName.replace(/\b\w/g, (char) => char.toUpperCase()),
@@ -69,6 +73,9 @@ function sendEmail() {
         vueAlert.isOpen = true
       }
     )
+    .finally(() => {
+      isSendingMessage.value = false
+    })
 }
 
 function submitContactForm() {
@@ -100,6 +107,7 @@ function submitContactForm() {
           <input
             id="name"
             v-model="emailMessage.fromName"
+            :disabled="isSendingMessage"
             class="form-control"
             placeholder="Your name"
             required
@@ -111,6 +119,7 @@ function submitContactForm() {
           <input
             id="email"
             v-model="emailMessage.userEmail"
+            :disabled="isSendingMessage"
             class="form-control"
             placeholder="example@company.com"
             required
@@ -122,6 +131,7 @@ function submitContactForm() {
           <textarea
             id="message"
             v-model="emailMessage.message"
+            :disabled="isSendingMessage"
             class="form-control"
             placeholder="Leave us a message..."
             required
@@ -131,14 +141,15 @@ function submitContactForm() {
           <label for="captcha">Captcha Code</label>
           <input
             id="captcha"
-            v-model="inputValue"
+            v-model="emailMessage.captcha"
+            :disabled="isSendingMessage"
             class="form-control"
             placeholder="Enter captcha code"
             required
             type="text"
           />
           <VueClientRecaptcha
-            :value="inputValue"
+            :value="emailMessage.captcha"
             @isValid="(isValid: boolean) => (isCaptchaValid = isValid)"
           />
         </div>
@@ -149,8 +160,14 @@ function submitContactForm() {
           :title="vueAlert.title"
         />
         <div class="form-group form-group-actions">
-          <VueButton hierarchy="Primary" size="xl" state="Default" @click="submitContactForm"
-            >Send message</VueButton
+          <VueButton
+            :is-loading="isSendingMessage"
+            hierarchy="Primary"
+            size="xl"
+            state="Default"
+            @click="submitContactForm"
+          >
+            Send message</VueButton
           >
         </div>
       </form>
@@ -243,6 +260,11 @@ form {
 
   &::placeholder {
     color: var(--text-placeholder);
+  }
+
+  &:disabled {
+    color: var(--text-disabled);
+    background-color: var(--bg-disabled_subtle);
   }
 }
 

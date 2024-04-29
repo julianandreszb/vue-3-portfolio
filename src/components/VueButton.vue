@@ -3,6 +3,7 @@ import type { IButton } from '@/typescriptDefinitions/IButton'
 import { reactive } from 'vue'
 
 const props = withDefaults(defineProps<IButton>(), {
+  isLoading: false,
   size: 'md',
   hierarchy: 'Primary',
   state: 'Default'
@@ -19,14 +20,40 @@ const classObject = reactive({
   'btn-md': props.size === 'md',
   'btn-lg': props.size === 'lg',
   'btn-xl': props.size === 'xl',
-  'btn-2xl': props.size === '2xl'
+  'btn-2xl': props.size === '2xl',
+
+  disabled: props.isLoading
 })
 </script>
 
 <template>
   <a :class="classObject">
+    <svg
+      v-if="props.isLoading"
+      viewBox="0 0 100 100"
+      x="0px"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+      y="0px"
+    >
+      <path
+        d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50"
+        fill="#fff"
+      >
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          dur="1s"
+          from="0 50 50"
+          repeatCount="indefinite"
+          to="360 50 50"
+          type="rotate"
+        />
+      </path>
+    </svg>
     <slot name="icon"></slot>
-    <slot></slot>
+    <!-- span v-if="!props.isLoading"><slot></slot></span-->
+    <slot v-if="!props.isLoading"></slot>
     <slot name="end-icon"></slot>
   </a>
 </template>
@@ -35,13 +62,15 @@ const classObject = reactive({
 @use 'src/assets/styles/text-styles';
 
 .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--radius-md);
   transition: all 0.3s ease-in-out;
   text-align: center;
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.01);
   }
 }
 
@@ -123,5 +152,16 @@ const classObject = reactive({
   height: 6rem;
   padding-block: 1.6rem;
   padding-inline: 2.2rem;
+}
+
+svg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.btn.disabled {
+  cursor: default;
+  opacity: 0.5;
+  transform: scale(1);
 }
 </style>

@@ -126,4 +126,9 @@ const classObject = reactive({
     0 0 0 0.4rem var(--bg-primary_alt),
     0 0 0 0.6rem color-mix(in srgb, var(--fg-success-primary) 10%, transparent);
 }
+
+.alert-actions {
+  display: flex;
+  justify-content: start;
+}
 </style>
