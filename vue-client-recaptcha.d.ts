@@ -1,4 +1,4 @@
-declare module 'vue3-recaptcha2' {
+declare module 'vue-client-recaptcha' {
   const content: any
   export default content
 }

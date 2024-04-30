@@ -3,42 +3,76 @@ import type { IButton } from '@/typescriptDefinitions/IButton'
 import { reactive } from 'vue'
 
 const props = withDefaults(defineProps<IButton>(), {
+  isLoading: false,
   size: 'md',
   hierarchy: 'Primary',
-  state: 'Default',
-  type: 'button'
+  state: 'Default'
 })
 
 const classObject = reactive({
+  btn: true,
+
   'btn-primary': props.hierarchy === 'Primary',
   'btn-secondary': props.hierarchy === 'Secondary color',
+  'btn-link-gray': props.hierarchy === 'Link gray',
 
   'btn-sm': props.size === 'sm',
   'btn-md': props.size === 'md',
   'btn-lg': props.size === 'lg',
   'btn-xl': props.size === 'xl',
-  'btn-2xl': props.size === '2xl'
+  'btn-2xl': props.size === '2xl',
+
+  disabled: props.isLoading
 })
 </script>
 
 <template>
-  <button :class="classObject" :type="props.type">
+  <a :class="classObject">
+    <svg
+      v-if="props.isLoading"
+      viewBox="0 0 100 100"
+      x="0px"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+      y="0px"
+    >
+      <path
+        d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50"
+        fill="#fff"
+      >
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          dur="1s"
+          from="0 50 50"
+          repeatCount="indefinite"
+          to="360 50 50"
+          type="rotate"
+        />
+      </path>
+    </svg>
     <slot name="icon"></slot>
-    <slot></slot>
+    <!-- span v-if="!props.isLoading"><slot></slot></span-->
+    <slot v-if="!props.isLoading"></slot>
     <slot name="end-icon"></slot>
-  </button>
+  </a>
 </template>
 
 <style lang="scss" scoped>
 @use 'src/assets/styles/text-styles';
+@use 'src/assets/styles/helper';
 
-button {
+.btn {
+  @include helper.disable-text-selection;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--radius-md);
   transition: all 0.3s ease-in-out;
+  text-align: center;
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.01);
   }
 }
 
@@ -72,6 +106,15 @@ button {
     box-shadow:
       0 0 0 0.2rem var(--border-brand-solid),
       0 0 0 0.6rem color-mix(in srgb, var(--bg-brand-primary) 50%, transparent);
+  }
+}
+
+.btn.btn-link-gray {
+  color: var(--button-tertiary-fg);
+  padding-inline: 0;
+
+  &:hover {
+    color: var(--button-tertiary-fg_hover);
   }
 }
 
@@ -111,5 +154,16 @@ button {
   height: 6rem;
   padding-block: 1.6rem;
   padding-inline: 2.2rem;
+}
+
+svg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.btn.disabled {
+  cursor: default;
+  opacity: 0.5;
+  transform: scale(1);
 }
 </style>
