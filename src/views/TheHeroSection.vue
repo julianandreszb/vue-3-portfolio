@@ -2,7 +2,6 @@
 import VueButton from '@/components/VueButton.vue'
 import appConfig from '../../app.config'
 import { openPage } from '@/utils/Functions'
-import heroImage from '../../public/img/illustrations/developer-working@2x.webp'
 </script>
 
 <template>
@@ -10,7 +9,7 @@ import heroImage from '../../public/img/illustrations/developer-working@2x.webp'
     <section class="hero">
       <img
         :alt="appConfig.sections.hero.image.alt"
-        :src="appConfig.sections.hero.image.src || heroImage"
+        :src="appConfig.sections.hero.image.src"
         class="contact-img"
         fetchpriority="high"
         loading="eager"
