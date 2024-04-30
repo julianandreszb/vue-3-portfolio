@@ -60,8 +60,10 @@ const classObject = reactive({
 
 <style lang="scss" scoped>
 @use 'src/assets/styles/text-styles';
+@use 'src/assets/styles/helper';
 
 .btn {
+  @include helper.disable-text-selection;
   display: flex;
   align-items: center;
   justify-content: center;
