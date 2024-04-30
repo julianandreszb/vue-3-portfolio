@@ -49,6 +49,7 @@ const props = defineProps<{ achievementCard: IAchievementCard }>()
   height: var(--spacing-6xl);
   border: var(--spacing-xxs) solid var(--featured-icon-modern-border);
   border-radius: var(--radius-md);
+  background-color: var(--fg-white);
 }
 
 .achievement-heading {
