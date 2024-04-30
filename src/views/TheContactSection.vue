@@ -6,6 +6,7 @@ import appConfig from '../../app.config'
 import VueClientRecaptcha from 'vue-client-recaptcha'
 import VueAlert from '@/components/VueAlert.vue'
 import { AlertColor } from '@/typescriptDefinitions/enums/AlertColor'
+import contactImage from '../../public/img/illustrations/user-contact.webp'
 
 const isCaptchaValid = ref(false)
 const isSendingMessage = ref(false)
@@ -173,7 +174,7 @@ function submitContactForm() {
       </form>
       <img
         :alt="appConfig.sections.contact.image.alt"
-        :src="appConfig.sections.contact.image.src"
+        :src="appConfig.sections.contact.image.src || contactImage"
         class="contact-img"
       />
     </div>
