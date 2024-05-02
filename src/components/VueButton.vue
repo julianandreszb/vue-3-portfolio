@@ -52,7 +52,6 @@ const classObject = reactive({
       </path>
     </svg>
     <slot name="icon"></slot>
-    <!-- span v-if="!props.isLoading"><slot></slot></span-->
     <slot v-if="!props.isLoading"></slot>
     <slot name="end-icon"></slot>
   </a>
@@ -70,6 +69,7 @@ const classObject = reactive({
   border-radius: var(--radius-md);
   transition: all 0.3s ease-in-out;
   text-align: center;
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;

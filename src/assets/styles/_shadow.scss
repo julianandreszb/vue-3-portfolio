@@ -1,16 +1,33 @@
 @use "src/assets/styles/helper";
 
 $utility-gray: #667085;
+$utility-dark: #000000;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    $utility-gray-300: #333741;
-  }
+@mixin shadow-xs {
+  $rgbColor: helper.hexToRGB($utility-gray);
+  box-shadow:
+          0 2px 4px -2px rgba($rgbColor, 0.10),
+          0 2px 4px -2px rgba($rgbColor, 0.6);
+}
+
+@mixin shadow-xs-dark {
+  $rgbColor: helper.hexToRGB($utility-dark);
+  box-shadow:
+          0 2px 4px -2px rgba($rgbColor, 1),
+          0 2px 4px -2px rgba($rgbColor, 1);
 }
 
 @mixin shadow-md {
   $rgbColor: helper.hexToRGB($utility-gray);
   box-shadow:
-          0 4px 8px -2px rgba($rgbColor, 0.10),
-          0 2px 4px -2px rgba($rgbColor, 0.6);
+          0 6px 16px -2px rgba($rgbColor, 0.10),
+          0 2px 8px -2px rgba($rgbColor, 0.6);
+}
+
+
+@mixin shadow-md-dark {
+  $rgbColor: helper.hexToRGB($utility-dark);
+  box-shadow:
+          0 6px 16px -2px rgba($rgbColor, 1),
+          0 2px 8px -2px rgba($rgbColor, 1);
 }

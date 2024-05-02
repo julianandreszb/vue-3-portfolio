@@ -145,6 +145,7 @@
   --text-secondary: var(--colors-gray-light-mode-700);
   --text-tertiary: var(--colors-gray-light-mode-600);
   --text-quaternary: var(--colors-gray-light-mode-500);
+  --text-white: var(--colors-base-white);
 
   /* Text brand secondary (light mode) */
   --text-brand-secondary: var(--colors-brand-700);
@@ -181,12 +182,14 @@
   
 
   /* Button ternary foreground (light mode)  */
-  --button-tertiary-fg: var(--colors-gray-light-mode-600);
+  --button-tertiary-fg: var(--colors-gray-light-mode-500);
   --button-tertiary-fg_hover: var(--colors-gray-light-mode-700);
   
   --icon-color-default: var(--colors-gray-light-mode-950);
   
-  --colors-utility-error-100: var(--colors-error-100)
+  --colors-utility-error-100: var(--colors-error-100);
+  
+  --alpha-white-30: rgba(255, 255, 255, 0.3);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -233,6 +236,7 @@
     --text-secondary: var(--colors-gray-dark-mode-300);
     --text-tertiary: var(--colors-gray-dark-mode-400);
     --text-quaternary: var(--colors-gray-dark-mode-400);
+    --text-white: var(--colors-base-white);
 
     /* Text brand secondary (light mode) */
     --text-brand-secondary: var(--colors-gray-dark-mode-300);
@@ -273,7 +277,9 @@
 
     --icon-color-default: var(--colors-gray-dark-mode-25);
 
-    --colors-utility-error-100: var(--colors-error-900)
+    --colors-utility-error-100: var(--colors-error-900);
+
+    --alpha-white-30: rgb(12, 17, 29, 0.3);
   }
 }
 
