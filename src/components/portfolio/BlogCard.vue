@@ -99,9 +99,10 @@ const projectDate = props.blogCard.date.toLocaleDateString('en-US', {
   aspect-ratio: 16/9;
   border-top-left-radius: var(--radius-md);
   border-top-right-radius: var(--radius-md);
-  object-fit: cover; /* To maintain aspect ratio */
+  object-fit: contain; /* To maintain aspect ratio */
   transition: all ease-in-out 0.4s;
   width: 100%;
+  background-color: var(--colors-base-white);
 }
 
 .card-content {
