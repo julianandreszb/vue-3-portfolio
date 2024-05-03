@@ -10,13 +10,13 @@ import { openPage } from '@/utils/Functions'
       <img
         :alt="appConfig.sections.hero.image.alt"
         :src="appConfig.sections.hero.image.src"
-        class="contact-img"
+        class="hero-img"
         fetchpriority="high"
         loading="eager"
       />
       <div class="hero-content-container">
         <div class="hero-content">
-          <h2 class="hero-heading">{{ appConfig.sections.hero.heading }}</h2>
+          <h2 class="hero-heading" v-html="appConfig.sections.hero.heading"></h2>
           <p class="hero-supporting-text">{{ appConfig.sections.hero.subheading }}</p>
         </div>
         <VueButton
@@ -51,6 +51,11 @@ import { openPage } from '@/utils/Functions'
   @include flex.column-gap-32;
 }
 
+.hero-img {
+  aspect-ratio: 16/9;
+  object-fit: contain;
+}
+
 .hero-content {
   @include flex.column-gap-16;
 }
@@ -74,7 +79,8 @@ import { openPage } from '@/utils/Functions'
     flex-direction: row-reverse;
   }
 
-  .contact-img {
+  .hero-img {
+    aspect-ratio: 1;
     max-width: 50%;
     object-fit: cover;
   }

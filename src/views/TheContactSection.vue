@@ -216,7 +216,8 @@ function submitContactForm() {
   .contact-img {
     display: block;
     max-width: 50%;
-    object-fit: cover;
+    object-fit: contain;
+    aspect-ratio: 16/9;
   }
 }
 
